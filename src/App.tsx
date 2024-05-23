@@ -3,13 +3,7 @@ import logo from "./logo.svg";
 import "./App.css";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>Bronco matching tool.</p>
-      </header>
-    </div>
-  );
+  return <div className=""></div>;
 }
 
 export default App;
