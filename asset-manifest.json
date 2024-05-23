@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/matching-tool/static/css/main.f855e6bc.css",
+    "main.js": "/matching-tool/static/js/main.8184a80d.js",
+    "static/js/453.8a932592.chunk.js": "/matching-tool/static/js/453.8a932592.chunk.js",
+    "index.html": "/matching-tool/index.html",
+    "main.f855e6bc.css.map": "/matching-tool/static/css/main.f855e6bc.css.map",
+    "main.8184a80d.js.map": "/matching-tool/static/js/main.8184a80d.js.map",
+    "453.8a932592.chunk.js.map": "/matching-tool/static/js/453.8a932592.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f855e6bc.css",
+    "static/js/main.8184a80d.js"
+  ]
+}
