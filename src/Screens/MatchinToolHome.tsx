@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function MatchinToolHome() {
   return (
-    <div>
+    <div className="bg-wmu_gold">
       <Navbar />
       <section className="bg-center bg-no-repeat bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg')] bg-wmu_gold bg-blend-multiply">
         <div className="px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-56">

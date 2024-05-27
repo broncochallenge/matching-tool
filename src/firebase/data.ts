@@ -15,15 +15,19 @@ export type BRONCO_CHALLENGE_ENTRY = {
   team_name: string;
   sdgs_of_interest: string[];
   members: PARTICIPANT[];
+  memberEmails: string[];
   participation_status: PARTICIPATION_STATUS;
+  /** Description: Skills that the team is looking for in a team member */
+  desired_skills: string[];
 };
 export type PARTICIPANT = {
+  id: string;
   name: string;
   email: string;
   academic_major: string;
   academic_level: string;
   team: string[];
-  skills: [];
+  skills: string[];
 };
 
 const sdgs: UN_SDG[] = [
@@ -618,6 +622,7 @@ export const membersMock: PARTICIPANT[] = [
     name: "Jane Doe",
     skills: [],
     team: [],
+    id: "",
   },
   {
     academic_level: "Freshmen",
@@ -626,6 +631,7 @@ export const membersMock: PARTICIPANT[] = [
     name: "John Doe",
     skills: [],
     team: [],
+    id: "",
   },
 ];
 
@@ -639,6 +645,7 @@ export const entriesMock: BRONCO_CHALLENGE_ENTRY[] = [
         name: "Justgh",
         skills: [],
         team: [],
+        id: "",
       },
       {
         academic_level: "Freshmen",
@@ -647,6 +654,7 @@ export const entriesMock: BRONCO_CHALLENGE_ENTRY[] = [
         name: "HSKS ",
         skills: [],
         team: [],
+        id: "",
       },
       {
         academic_level: "Freshmen",
@@ -655,11 +663,14 @@ export const entriesMock: BRONCO_CHALLENGE_ENTRY[] = [
         name: "Yaba",
         skills: [],
         team: [],
+        id: "",
       },
     ],
     participation_status: PARTICIPATION_STATUS.ON_A_TEAM,
     sdgs_of_interest: ["12", "10", "3"],
     team_name: "Team 0003456",
+    desired_skills: [],
+    memberEmails: [],
     id: "",
   },
   {
@@ -671,6 +682,7 @@ export const entriesMock: BRONCO_CHALLENGE_ENTRY[] = [
         name: "Justgh",
         skills: [],
         team: [],
+        id: "",
       },
       {
         academic_level: "Freshmen",
@@ -679,6 +691,7 @@ export const entriesMock: BRONCO_CHALLENGE_ENTRY[] = [
         name: "HSKS ",
         skills: [],
         team: [],
+        id: "",
       },
       {
         academic_level: "Freshmen",
@@ -687,11 +700,14 @@ export const entriesMock: BRONCO_CHALLENGE_ENTRY[] = [
         name: "Yaba",
         skills: [],
         team: [],
+        id: "",
       },
     ],
     participation_status: PARTICIPATION_STATUS.ON_A_TEAM,
     sdgs_of_interest: ["1", "2", "3"],
     team_name: "Team 0002",
+    desired_skills: [],
+    memberEmails: [],
     id: "",
   },
 ];

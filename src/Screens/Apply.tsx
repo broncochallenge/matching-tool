@@ -9,10 +9,11 @@ import {
   BRONCO_CHALLENGE_ENTRY,
   PARTICIPATION_STATUS,
   skills_and_interests,
-} from "../functions/data";
-import { addNewSubmission } from "../functions/functions";
+} from "../firebase/data";
 import { Modal, message } from "antd";
 import { useNavigate } from "react-router-dom";
+import Spinner from "../Components/Spinner";
+import { addEntry } from "../firebase/functions";
 
 export default function Apply() {
   const [members, setMembers] = useState<PARTICIPANT[]>([]);
@@ -27,6 +28,8 @@ export default function Apply() {
   const [teamName, setTeamName] = useState("");
   const [teamSdgs, setTeamSdgs] = useState<string[]>([]);
   const [skills, setSkills] = useState<string[]>([]);
+  const [loading, setLoading] = useState(false);
+
   const skillsets = skills_and_interests.flatMap((i) => i.detail).sort();
   const selectSkill = (skill: string) => {
     if (skills.findIndex((x) => x === skill) !== -1) {
@@ -47,14 +50,17 @@ export default function Apply() {
       name: mFullName,
       skills: [],
       team: [],
+      id: "",
     };
     setMembers([...members, newMember]);
     setMEmail("");
     setMFullName("");
   };
+
   const deleteMember = (index: number) => {
     setMembers((prev) => prev.filter((_, i) => i !== index));
   };
+
   const selectSDG = (sdg: UN_SDG) => {
     if (teamSdgs.findIndex((x) => x === sdg.id) !== -1) {
       setTeamSdgs((prev) => prev.filter((x) => x !== sdg.id));
@@ -62,11 +68,11 @@ export default function Apply() {
       teamSdgs.push(sdg.id);
     }
   };
+
   const [modal, contextHolder] = Modal.useModal();
   const navigate = useNavigate();
   const countDown = () => {
     let secondsToGo = 5;
-
     const instance = modal.success({
       title:
         "You have successfully submitted your entry for the Bronco Challenge",
@@ -109,18 +115,25 @@ export default function Apply() {
           academic_major: yourMajor,
           email: yourEmail,
           name: yourFullName,
-          skills: [],
+          skills,
           team: [],
+          id: "",
         },
       ],
       participation_status: PARTICIPATION_STATUS.ON_A_TEAM,
       sdgs_of_interest: teamSdgs,
       team_name: teamName,
       id: "",
+      desired_skills: [],
+      memberEmails: [...members.map((i) => i.email), yourEmail],
     };
-    console.log({ newSubmision });
 
-    await addNewSubmission(newSubmision).then(countDown);
+    setLoading(true);
+    await addEntry(newSubmision)
+      .then(countDown)
+      .finally(() => {
+        setLoading(false);
+      });
   };
 
   return (
@@ -309,7 +322,7 @@ export default function Apply() {
 
           <ul className="ps-5 my-2 space-y-1 list-decimal list-inside">
             {members.map((i, index) => (
-              <li>
+              <li key={index}>
                 <div className="flex justify-between">
                   <div>
                     {i.name} - {i.email}
@@ -425,9 +438,10 @@ export default function Apply() {
 
         <button
           type="submit"
-          className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          className="flex gap-x-3 justify-center items-center text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
         >
           Submit application
+          {loading && <Spinner />}
         </button>
       </form>
     </div>
