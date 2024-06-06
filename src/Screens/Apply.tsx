@@ -109,7 +109,6 @@ export default function Apply() {
     }
     const newSubmision: BRONCO_CHALLENGE_ENTRY = {
       members: [
-        ...members,
         {
           academic_level: yourLevel,
           academic_major: yourMajor,
@@ -119,6 +118,7 @@ export default function Apply() {
           team: [],
           id: "",
         },
+        ...members,
       ],
       participation_status: PARTICIPATION_STATUS.ON_A_TEAM,
       sdgs_of_interest: teamSdgs,
@@ -429,7 +429,7 @@ export default function Apply() {
             <button
               type="button"
               onClick={addNewMember}
-              className="text-white  bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              className="flex gap-x-3 justify-center items-center text-white bg-wmu_brown hover:bg-wmu_brown focus:ring-4 focus:outline-none focus:ring-wmu_brown font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-wmu_brown dark:hover:bg-wmu_brown dark:focus:ring-wmu_brown"
             >
               Add new member
             </button>
@@ -438,7 +438,7 @@ export default function Apply() {
 
         <button
           type="submit"
-          className="flex gap-x-3 justify-center items-center text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          className="flex gap-x-3 justify-center items-center text-wmu_brown bg-wmu_gold hover:bg-wmu_gold focus:ring-4 focus:outline-none focus:ring-wmu_gold font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-wmu_gold dark:hover:bg-wmu_gold dark:focus:ring-wmu_gold"
         >
           Submit application
           {loading && <Spinner />}
