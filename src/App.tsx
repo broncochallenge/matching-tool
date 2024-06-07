@@ -8,12 +8,14 @@ import ErrorPage from "./Screens/ErrorPage";
 import Apply from "./Screens/Apply";
 import FindTeamMembers from "./Screens/FindTeamMembers";
 import JoinATeam from "./Screens/JoinATeam";
+import EntryList from "./Screens/EntryList";
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MatchinToolHome />,
     errorElement: <ErrorPage />,
   },
+  { path: "/OIHEPOIJWtwtfvwkblwho", element: <EntryList /> },
   { path: "/apply", element: <Apply /> },
   { path: "/find-team-members", element: <FindTeamMembers /> },
   { path: "/join-a-team", element: <JoinATeam /> },

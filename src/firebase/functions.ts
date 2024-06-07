@@ -7,9 +7,11 @@ import {
   where,
   getDocs,
   or,
+  getDoc,
 } from "firebase/firestore";
 import { db } from "./config";
 import { BRONCO_CHALLENGE_ENTRY, PARTICIPANT } from "./data";
+import { message } from "antd";
 
 export async function addEntry(entry: BRONCO_CHALLENGE_ENTRY) {
   try {
@@ -27,11 +29,15 @@ export async function addEntry(entry: BRONCO_CHALLENGE_ENTRY) {
     await addMembersBatch.commit();
 
     const newEntryRef = doc(collection(db, "challengeEntry"));
-    await setDoc(newEntryRef, {
+    const memberEmails = members.map((i) => i.email);
+    const newEntry: BRONCO_CHALLENGE_ENTRY = {
       ...entry,
       members,
-    }).then(async () => {
-      await sendWelcomeEmail(members[0].email, entry.team_name);
+      memberEmails,
+      id: newEntryRef.id,
+    };
+    await setDoc(newEntryRef, newEntry).then(async () => {
+      await sendWelcomeEmail(memberEmails, entry.team_name);
     });
   } catch (e) {
     console.error("Error adding document: ", e);
@@ -88,6 +94,7 @@ export async function getMembers(skills: string[], yourEmail: string) {
     return null;
   }
 }
+
 export async function getTeams(
   skills: string[],
   sdgs: string[],
@@ -147,7 +154,8 @@ export async function getTeams(
     return null;
   }
 }
-export async function sendWelcomeEmail(email: string, teamName: string) {
+
+export async function sendWelcomeEmail(email: string[], teamName: string) {
   const supportEmail = "Neil.Drobny@wmich.edu";
   const text = `Subject: Welcome to the Bronco Challenge!
 
@@ -222,10 +230,65 @@ The Bronco Challenge Team`;
       message: { subject: "Welcome to the Bronco Challenge", text, html },
     }
   )
-    .then((c) => {
-      console.log("Queued email for delivery!");
-    })
+    .then((c) => {})
     .catch((error) => {
       return null;
     });
+}
+
+export async function getAllTeams() {
+  try {
+    // Get all entries
+    const entriesQuery = query(collection(db, "challengeEntry"));
+
+    const querySnapshot = await getDocs(entriesQuery);
+    const entries: BRONCO_CHALLENGE_ENTRY[] = [];
+
+    querySnapshot.forEach((doc) => {
+      entries.push(doc.data() as BRONCO_CHALLENGE_ENTRY);
+    });
+
+    return entries;
+  } catch (e) {
+    console.error("Error fetching documents: ", e);
+    return null;
+  }
+}
+
+export async function addMembertoTeam(entryId: string, member: PARTICIPANT) {
+  try {
+    const docRef = doc(db, "challengeEntry", entryId);
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+      const entry = docSnap.data() as BRONCO_CHALLENGE_ENTRY;
+
+      //if member is already on the team
+      if (entry.memberEmails.indexOf(member.email) > -1) {
+        message.error("A member with the same email already exists.");
+        return null;
+      }
+      // Add a new participant document with a generated id
+      const ref = doc(collection(db, "participants"));
+      const newMember = { ...member, id: ref.id };
+      await setDoc(ref, newMember).then(async () => {
+        // update the entry
+        const members = [...entry.members, newMember];
+        const memberEmails = [...entry.memberEmails, member.email];
+        const updatedEntry: BRONCO_CHALLENGE_ENTRY = {
+          ...entry,
+          members,
+          memberEmails,
+        };
+        await setDoc(docRef, updatedEntry);
+        await sendWelcomeEmail([member.email], entry.team_name);
+        return newMember;
+      });
+    } else {
+      message.error("Document not found!");
+      return null;
+    }
+  } catch (e) {
+    console.error("Error adding document: ", e);
+  }
 }
