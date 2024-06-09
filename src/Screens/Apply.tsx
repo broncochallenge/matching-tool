@@ -137,7 +137,7 @@ export default function Apply() {
   };
 
   return (
-    <div>
+    <div className="dark:bg-gray-800 min-h-screen">
       <Navbar />
       {contextHolder}
       <form onSubmit={onSubmitForm} className="max-w-2xl mx-auto p-4">
@@ -342,7 +342,7 @@ export default function Apply() {
           </ul>
 
           <div className="p-4 border rounded">
-            <h4 className="mb-2">Add new team member</h4>
+            <h4 className="mb-2 dark:text-white">Add new team member</h4>
             <div className=" grid gap-6 mb-6 md:grid-cols-2">
               <div className="mb-2">
                 <label

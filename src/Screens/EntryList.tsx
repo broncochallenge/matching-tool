@@ -88,7 +88,7 @@ const EntryList: React.FC = () => {
 
   const columns: TableProps<BRONCO_CHALLENGE_ENTRY>["columns"] = [
     {
-      title: "Team Name",
+      title: "Team name",
       dataIndex: "team_name",
       key: "team_name",
       render: (text) => <a>{text}</a>,
@@ -98,11 +98,11 @@ const EntryList: React.FC = () => {
       key: "sdg",
       dataIndex: "sdg",
       render: (_, { sdgs_of_interest }) => (
-        <>
+        <Space wrap>
           {sdgs_of_interest.map((sdg) => {
             return <Tag key={sdg}> SDG #{sdg.toUpperCase()}</Tag>;
           })}
-        </>
+        </Space>
       ),
     },
     {
@@ -170,20 +170,20 @@ const EntryList: React.FC = () => {
         okButtonProps={{ hidden: true }}
         cancelButtonProps={{ hidden: true }}
       >
-        <div className="p-4 border rounded">
-          <h4 className="mb-2">Add new team member</h4>
+        <div className="p-4 border rounded ">
+          <h4 className="mb-2 ">Add new team member</h4>
           <div className=" grid gap-6 mb-6 md:grid-cols-2">
             <div className="mb-2">
               <label
                 htmlFor="memberFullName"
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                className="block mb-2 text-sm font-medium text-gray-900 "
               >
                 Member's Full Name
               </label>
               <input
                 type="text"
                 id="memberFullName"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                 placeholder="John Doe"
                 onChange={(e) => {
                   setMFullName(e.target.value);
@@ -195,14 +195,14 @@ const EntryList: React.FC = () => {
             <div className="mb-2">
               <label
                 htmlFor="memberEmail"
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                className="block mb-2 text-sm font-medium text-gray-900 "
               >
                 Member's email
               </label>
               <input
                 type="email"
                 id="memberEmail"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                 placeholder="name@wmich.edu"
                 onChange={(e) => {
                   setMEmail(e.target.value);
@@ -213,12 +213,12 @@ const EntryList: React.FC = () => {
             <div className="mb-2">
               <label
                 htmlFor="memberAcademicMajor"
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                className="block mb-2 text-sm font-medium text-gray-900 "
               >
                 Member's Academic Major
               </label>
               <select
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                 name="memberAcademicMajor"
                 id="memberAcademicMajor"
                 onChange={(e) => {
@@ -235,12 +235,12 @@ const EntryList: React.FC = () => {
             <div className="mb-2">
               <label
                 htmlFor="memberAcademicLevel"
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                className="block mb-2 text-sm font-medium text-gray-900 "
               >
                 Member's Academic Level
               </label>
               <select
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                 name="memberAcademicLevel"
                 id="memberAcademicLevel"
                 onChange={(e) => {
@@ -258,7 +258,7 @@ const EntryList: React.FC = () => {
           <button
             type="button"
             onClick={addNewMember}
-            className="flex gap-x-3 justify-center items-center text-white bg-wmu_brown hover:bg-wmu_brown focus:ring-4 focus:outline-none focus:ring-wmu_brown font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-wmu_brown dark:hover:bg-wmu_brown dark:focus:ring-wmu_brown"
+            className="flex gap-x-3 justify-center items-center text-white bg-wmu_brown hover:bg-wmu_brown focus:ring-4 focus:outline-none focus:ring-wmu_brown font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center "
           >
             Add new member{loading && <Spinner />}
           </button>

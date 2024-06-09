@@ -1,9 +1,10 @@
+import Footer from "../Components/Footer";
 import Navbar from "../Components/Navbar";
 import { Link } from "react-router-dom";
 
 export default function MatchinToolHome() {
   return (
-    <div className="bg-wmu_gold">
+    <div className="dark:bg-gray-800 min-h-screen">
       <Navbar />
       <section className="bg-center bg-no-repeat bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg')] bg-wmu_gold bg-blend-multiply">
         <div className="px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-56">
@@ -16,15 +17,15 @@ export default function MatchinToolHome() {
           </p>
           <div className="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
             <Link
-              to="#"
-              // to="/find-team-members"
+              // to="#"
+              to="/find-team-members"
               className="inline-flex justify-center hover:text-gray-900 items-center py-3 px-5 sm:ms-4 text-base font-medium text-center text-white rounded-lg border border-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-400"
             >
               Find Team Members
             </Link>
             <Link
-              to="#"
-              // to="/join-a-team"
+              // to="#"
+              to="/join-a-team"
               className="inline-flex justify-center hover:text-gray-900 items-center py-3 px-5 sm:ms-4 text-base font-medium text-center text-white rounded-lg border border-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-400"
             >
               Join a Team
@@ -32,6 +33,7 @@ export default function MatchinToolHome() {
           </div>
         </div>
       </section>
+      <Footer />
     </div>
   );
 }
