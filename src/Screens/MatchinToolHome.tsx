@@ -17,15 +17,15 @@ export default function MatchinToolHome() {
           </p>
           <div className="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
             <Link
-              // to="#"
-              to="/find-team-members"
+              to="#"
+              // to="/find-team-members"
               className="inline-flex justify-center hover:text-gray-900 items-center py-3 px-5 sm:ms-4 text-base font-medium text-center text-white rounded-lg border border-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-400"
             >
               Find Team Members
             </Link>
             <Link
-              // to="#"
-              to="/join-a-team"
+              to="#"
+              // to="/join-a-team"
               className="inline-flex justify-center hover:text-gray-900 items-center py-3 px-5 sm:ms-4 text-base font-medium text-center text-white rounded-lg border border-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-400"
             >
               Join a Team
