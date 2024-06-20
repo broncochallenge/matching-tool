@@ -1,3 +1,8 @@
+export type SESSION_TOKEN = {
+  id: string;
+  email: string;
+  time: string;
+};
 export type UN_SDG = {
   id: string;
   details: string;
@@ -10,20 +15,27 @@ enum PARTICIPATION_STATUS {
   OTHERS = "Other",
 }
 
-export type BRONCO_CHALLENGE_ENTRY = {
+export type MATCH_REQUEST_ENTRY = {
   id: string;
-  team_name: string;
-  sdgs_of_interest: string[];
+  name: string;
+  message: string;
+  phone: string;
+  teamName: string;
+  sdgsOfInterest: string[];
   members: PARTICIPANT[];
+  memberEmails: string[];
   participation_status: PARTICIPATION_STATUS;
+  /** Description: Skills that the team is looking for in a team member */
+  desired_skills: string[];
 };
 export type PARTICIPANT = {
+  id: string;
   name: string;
   email: string;
   academic_major: string;
   academic_level: string;
   team: string[];
-  skills: [];
+  skills: string[];
 };
 
 const sdgs: UN_SDG[] = [
@@ -608,92 +620,6 @@ const grad_and_undergrad_majors = [
   "Workforce Education and Development—BA",
   "Youth and Community Development—BS",
   "Youth and Community Development—Certificate",
-];
-export const membersMock: PARTICIPANT[] = [
-  {
-    academic_level: "Juniors",
-    academic_major:
-      "Adapted Physical Education and Positive Behavioral Intervention and Supports—Certificate",
-    email: "jane@doe.com",
-    name: "Jane Doe",
-    skills: [],
-    team: [],
-  },
-  {
-    academic_level: "Freshmen",
-    academic_major: "Accountancy—BBA",
-    email: "joh@do.com",
-    name: "John Doe",
-    skills: [],
-    team: [],
-  },
-];
-
-export const entriesMock: BRONCO_CHALLENGE_ENTRY[] = [
-  {
-    members: [
-      {
-        academic_level: "Freshmen",
-        academic_major: "Accountancy—BBA",
-        email: "hsj@bdg.com",
-        name: "Justgh",
-        skills: [],
-        team: [],
-      },
-      {
-        academic_level: "Freshmen",
-        academic_major: "Accountancy—BBA",
-        email: "tyey@bnd.com",
-        name: "HSKS ",
-        skills: [],
-        team: [],
-      },
-      {
-        academic_level: "Freshmen",
-        academic_major: "Accountancy—BBA",
-        email: "bsb@ydy.com",
-        name: "Yaba",
-        skills: [],
-        team: [],
-      },
-    ],
-    participation_status: PARTICIPATION_STATUS.ON_A_TEAM,
-    sdgs_of_interest: ["12", "10", "3"],
-    team_name: "Team 0003456",
-    id: "",
-  },
-  {
-    members: [
-      {
-        academic_level: "Freshmen",
-        academic_major: "Accountancy—BBA",
-        email: "hsj@bdg.com",
-        name: "Justgh",
-        skills: [],
-        team: [],
-      },
-      {
-        academic_level: "Freshmen",
-        academic_major: "Accountancy—BBA",
-        email: "tyey@bnd.com",
-        name: "HSKS ",
-        skills: [],
-        team: [],
-      },
-      {
-        academic_level: "Freshmen",
-        academic_major: "Accountancy—BBA",
-        email: "bsb@ydy.com",
-        name: "Yaba",
-        skills: [],
-        team: [],
-      },
-    ],
-    participation_status: PARTICIPATION_STATUS.ON_A_TEAM,
-    sdgs_of_interest: ["1", "2", "3"],
-    team_name: "Team 0002",
-    id: "",
-  },
 ];
 
 export {
