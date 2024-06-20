@@ -34,15 +34,20 @@ const EntryList: React.FC = () => {
           renderItem={(item) => (
             <List.Item
               actions={[
-                <a key="list-loadmore-edit">☎️ {item.phone}</a>,
+                <a key="list-loadmore-edit">☎️ Phone: {item.phone}</a>,
                 <a href={`tel:${item.phone}`} key="list-loadmore-more">
                   Call {item.name}
                 </a>,
               ]}
             >
               <List.Item.Meta
-                title={<h1>{item.name}</h1>}
-                description={`${item.message}`}
+                title={
+                  <div>
+                    <h1>Posted by: {item.name}</h1>
+                    <h1>Team: {item.teamName}</h1>
+                  </div>
+                }
+                description={item.message}
               />
               <div>
                 Skills we are looking for:{" "}
@@ -58,7 +63,7 @@ const EntryList: React.FC = () => {
               </div>
             </List.Item>
           )}
-        />{" "}
+        />
       </div>
     </div>
   );
