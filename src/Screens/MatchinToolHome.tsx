@@ -1,8 +1,40 @@
+import { FormEvent, useState } from "react";
 import Footer from "../Components/Footer";
 import Navbar from "../Components/Navbar";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { Modal, message } from "antd";
+import Spinner from "../Components/Spinner";
+import { generateToken, loginWithToken } from "../firebase/functions";
+import EntryList from "../Components/EntryList";
 
 export default function MatchinToolHome() {
+  const [loading, setLoading] = useState(false);
+  const [gettingToken, setGettingToken] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [token, setToken] = useState("");
+  const [yourEmail, setYourEmail] = useState("");
+  const navigate = useNavigate();
+
+  const showModal = () => {
+    setOpen(true);
+  };
+
+  const handleOk = () => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+      setOpen(false);
+    }, 3000);
+  };
+
+  const handleCancel = () => {
+    setOpen(false);
+  };
+
+  const onSubmitForm = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+  };
+
   return (
     <div className="dark:bg-gray-800 min-h-screen">
       <Navbar />
@@ -16,23 +48,110 @@ export default function MatchinToolHome() {
             a lasting impact.
           </p>
           <div className="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
-            <Link
-              to="#"
-              // to="/find-team-members"
+            <button
+              onClick={showModal}
               className="inline-flex justify-center hover:text-gray-900 items-center py-3 px-5 sm:ms-4 text-base font-medium text-center text-white rounded-lg border border-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-400"
             >
               Find Team Members
-            </Link>
-            <Link
-              to="#"
-              // to="/join-a-team"
+            </button>
+            <button
+              onClick={() => {
+                window.scrollTo({
+                  top: document.body.scrollHeight,
+                  behavior: "smooth",
+                });
+              }}
               className="inline-flex justify-center hover:text-gray-900 items-center py-3 px-5 sm:ms-4 text-base font-medium text-center text-white rounded-lg border border-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-400"
             >
               Join a Team
-            </Link>
+            </button>
           </div>
         </div>
       </section>
+      <Modal
+        open={open}
+        title="Login with one-time token"
+        onOk={handleOk}
+        onCancel={handleCancel}
+        footer={false}
+      >
+        <form onSubmit={onSubmitForm} className=" ">
+          <div className="mb-2">
+            <label
+              htmlFor="fullName"
+              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >
+              Your WMU Email
+            </label>
+            <input
+              type="text"
+              autoComplete="given-name"
+              id="fullName"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="firstname.lastname@wmich.edu"
+              required
+              onChange={(e) => {
+                setYourEmail(e.target.value);
+              }}
+            />
+          </div>
+          <div className="mb-2">
+            <label
+              htmlFor="teamName"
+              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >
+              One-time token
+            </label>
+            <input
+              type="text"
+              id="teamName"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              required
+              onChange={(e) => {
+                setToken(e.target.value);
+              }}
+            />
+          </div>
+          <div className="mb-2 flex ">
+            <button
+              type="button"
+              onClick={async () => {
+                if (!yourEmail) return message.warning("Email is required.");
+                if (!token) return message.warning("Token is required.");
+                setLoading(true);
+                await loginWithToken(token, yourEmail)
+                  .finally(() => {
+                    setLoading(false);
+                  })
+                  .then((response) => {
+                    if (response) {
+                      navigate(`/find-team-members?token=${token}`);
+                    }
+                  });
+              }}
+              className=" flex gap-x-3 justify-center items-center text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+            >
+              Login {loading && <Spinner />}
+            </button>
+            <button
+              type="button"
+              onClick={async () => {
+                if (!yourEmail) return message.warning("Email is required.");
+                setGettingToken(true);
+                await generateToken(yourEmail).finally(() => {
+                  setGettingToken(false);
+                });
+              }}
+              className=" flex gap-x-3 justify-center items-center py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+            >
+              Get token {gettingToken && <Spinner />}
+            </button>
+          </div>
+        </form>
+      </Modal>
+      <div id="entryList">
+        <EntryList />
+      </div>
       <Footer />
     </div>
   );

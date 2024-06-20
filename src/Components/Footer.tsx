@@ -20,7 +20,7 @@ export default function Footer() {
               href="https://wmich.edu/sustainability/initiatives/broncochallenge"
               className="hover:underline me-4 md:me-6"
             >
-              About
+              Back to Bronco Challenge
             </a>
           </li>
           <li>

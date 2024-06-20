@@ -6,7 +6,6 @@ export default function Navbar() {
     <div>
       <nav className="bg-white border-gray-200 dark:bg-wmu_brown">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-          {/* <Link to={`contacts/1`}>Your Name</Link> */}
           <Link
             to="/"
             className="flex items-center space-x-3 rtl:space-x-reverse"
@@ -20,20 +19,6 @@ export default function Navbar() {
               Matching Tool
             </span>
           </Link>
-
-          <div className="w-auto" id="navbar-default">
-            <ul className="font-medium flex dark:bg-wmu_brown md:space-x-8 space-x-4">
-              <li>
-                <Link
-                  to="/apply"
-                  className="dark:text-white "
-                  aria-current="page"
-                >
-                  Apply
-                </Link>
-              </li>
-            </ul>
-          </div>
         </div>
       </nav>
     </div>
