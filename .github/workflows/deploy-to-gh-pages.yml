@@ -1,0 +1,41 @@
+name: Deploy React App to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main # Change this to your default branch
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16" # Specify your Node.js version
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Create .env file
+        run: |
+          echo "REACT_APP_APIKEY=${{ secrets.REACT_APP_APIKEY }}" >> .env
+          echo "REACT_APP_AUTHDOMAIN=${{ secrets.REACT_APP_AUTHDOMAIN }}" >> .env
+          echo "REACT_APP_PROJECTID=${{ secrets.REACT_APP_PROJECTID }}" >> .env
+          echo "REACT_APP_STORAGEBUCKET=${{ secrets.REACT_APP_STORAGEBUCKET }}" >> .env
+          echo "REACT_APP_MESSAGINGSENDERID=${{ secrets.REACT_APP_MESSAGINGSENDERID }}" >> .env
+          echo "REACT_APP_APPID=${{ secrets.REACT_APP_APPID }}" >> .env
+          echo "REACT_APP_MEASUREMENTID=${{ secrets.REACT_APP_MEASUREMENTID }}" >> .env
+
+      - name: Build project
+        run: npm run build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
