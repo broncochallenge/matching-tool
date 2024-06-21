@@ -16,7 +16,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: "20" # Specify your Node.js version
+          node-version: "20" # Updated to Node.js 20
 
       - name: Install dependencies
         run: npm install
@@ -39,3 +39,6 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build
+        retry:
+          max-attempts: 3 # Retry up to 3 times if network issues occur
+          delay-seconds: 30 # Wait 30 seconds between attempts
