@@ -37,7 +37,11 @@ const EntryList: React.FC = () => {
           renderItem={(item) => (
             <List.Item
               actions={[
-                <a className="dark:text-gray-400" key="list-loadmore-edit">
+                <a
+                  href="#"
+                  className="dark:text-gray-400"
+                  key="list-loadmore-edit"
+                >
                   ☎️ Phone: {item.phone}
                 </a>,
                 <a
