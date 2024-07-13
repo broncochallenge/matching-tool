@@ -2,44 +2,28 @@ import { FormEvent, useState } from "react";
 import Navbar from "../Components/Navbar";
 import {
   sdgs,
-  UN_SDG,
   MATCH_REQUEST_ENTRY,
   PARTICIPATION_STATUS,
   skills_and_interests,
+  grad_and_undergrad_majors,
 } from "../firebase/data";
-import { Modal, message } from "antd";
+import { Modal, Select, SelectProps, message } from "antd";
 import { useNavigate } from "react-router-dom";
 import Spinner from "../Components/Spinner";
 import { addEntry, loginWithToken } from "../firebase/functions";
 
 export default function FindTeamMembers() {
-  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
   const [messageText, setMessageText] = useState("");
   const [yourFullName, setYourFullName] = useState("");
   const [teamName, setTeamName] = useState("");
   const [teamSdgs, setTeamSdgs] = useState<string[]>([]);
+  const [teamMajors, setTeamMajors] = useState<string[]>([]);
   const [skills, setSkills] = useState<string[]>([]);
   const [loading, setLoading] = useState(false);
+
   const token = new URLSearchParams(window.location.search).get("token");
-
   const skillsets = skills_and_interests.flatMap((i) => i.detail).sort();
-  const selectSkill = (skill: string) => {
-    if (skills.findIndex((x) => x === skill) !== -1) {
-      setSkills((prev) => prev.filter((x) => x !== skill));
-    } else {
-      setSkills((prev) => [...prev, skill]);
-    }
-  };
-  const skillsToString = skills.join(", ");
-
-  const selectSDG = (sdg: UN_SDG) => {
-    if (teamSdgs.findIndex((x) => x === sdg.id) !== -1) {
-      setTeamSdgs((prev) => prev.filter((x) => x !== sdg.id));
-    } else {
-      teamSdgs.push(sdg.id);
-    }
-  };
-
   const [modal, contextHolder] = Modal.useModal();
   const navigate = useNavigate();
   const countDown = () => {
@@ -82,14 +66,14 @@ export default function FindTeamMembers() {
       members: [],
       participation_status: PARTICIPATION_STATUS.ON_A_TEAM,
       memberEmails: [],
-
       // important data
       name: yourFullName,
       teamName: teamName,
       message: messageText,
       desired_skills: skills,
       sdgsOfInterest: teamSdgs,
-      phone,
+      email: email,
+      teamMajors,
     };
 
     setLoading(true);
@@ -113,6 +97,17 @@ export default function FindTeamMembers() {
         message.error("Error adding entry. Try again!");
       });
   };
+
+  const teamsMajorsOptions: SelectProps["options"] =
+    grad_and_undergrad_majors.map((i) => {
+      return { label: i, value: i };
+    });
+  const skillsOptions: SelectProps["options"] = skillsets.map((i) => {
+    return { label: i, value: i };
+  });
+  const sdgOptions: SelectProps["options"] = sdgs.map((i) => {
+    return { label: `SDG ${i.id} - ${i.short}`, value: i.id };
+  });
 
   return (
     <div className="dark:bg-gray-800 min-h-screen">
@@ -141,20 +136,20 @@ export default function FindTeamMembers() {
           </div>
           <div className="mb-2">
             <label
-              htmlFor="phone"
+              htmlFor="email"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >
-              Your Phone
+              Your email
             </label>
             <input
-              type="tel"
-              autoComplete="mobile tel"
-              id="phone"
+              type="email"
+              autoComplete="email"
+              id="email"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="(000) 000 0000"
+              placeholder="first.last@wmich.edu"
               required
               onChange={(e) => {
-                setPhone(e.target.value);
+                setEmail(e.target.value);
               }}
             />
           </div>
@@ -169,6 +164,7 @@ export default function FindTeamMembers() {
           <input
             type="text"
             id="teamName"
+            placeholder="The Awesome Avengers"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             required
             onChange={(e) => {
@@ -193,6 +189,24 @@ export default function FindTeamMembers() {
             placeholder="Hey there, we are Team [Your Team Name] working on solving problems related to [Your SDG Focus]."
           ></textarea>
         </div>
+        <div className="mb-2">
+          <label
+            htmlFor="teamMembersMajors"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >
+            Your current team members' Majors
+          </label>
+
+          <Select
+            className="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg  focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            mode="multiple"
+            allowClear
+            style={{ width: "100%" }}
+            placeholder="Please select"
+            onChange={setTeamMajors}
+            options={teamsMajorsOptions}
+          />
+        </div>
         <div className="mb-4">
           <label
             htmlFor="sdgs"
@@ -200,33 +214,17 @@ export default function FindTeamMembers() {
           >
             What skills are you looking for in a teammate?
           </label>
-
-          <ul className="w-full text-sm h-40 overflow-x-auto font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white ">
-            {skillsets.map((i, index) => (
-              <li
-                key={index}
-                className="w-full border-b border-gray-200 rounded-t-lg dark:border-gray-600"
-              >
-                <div className="flex items-center ps-3">
-                  <input
-                    id={i}
-                    type="checkbox"
-                    className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                    defaultChecked={skills.findIndex((x) => x === i) !== -1}
-                    onChange={() => selectSkill(i)}
-                  />
-                  <label
-                    htmlFor="vue-checkbox"
-                    className="w-full py-3 ms-2   text-gray-900 dark:text-gray-300"
-                  >
-                    {i}
-                  </label>
-                </div>
-              </li>
-            ))}
-          </ul>
+          <Select
+            className="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg  focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            mode="multiple"
+            allowClear
+            style={{ width: "100%" }}
+            placeholder="Please select"
+            onChange={setSkills}
+            options={skillsOptions}
+          />
         </div>
-        <p className="my-2 text-sm">{skillsToString}</p>
+
         <div className="mb-4">
           <label
             htmlFor="sdgs"
@@ -234,38 +232,16 @@ export default function FindTeamMembers() {
           >
             Select the Sustainable Development Goals relevant to your project
           </label>
-
-          <ul className="w-full text-sm h-40 overflow-x-auto font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white ">
-            {sdgs.map((i, index) => (
-              <li
-                key={index}
-                className="w-full border-b border-gray-200 rounded-t-lg dark:border-gray-600"
-              >
-                <div className="flex items-center ps-3">
-                  <input
-                    id={i.id}
-                    type="checkbox"
-                    className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                    defaultChecked={
-                      teamSdgs.findIndex((x) => x === i.id) !== -1
-                    }
-                    onChange={() => selectSDG(i)}
-                  />
-                  <label
-                    htmlFor="vue-checkbox"
-                    className="w-full py-3 ms-2   text-gray-900 dark:text-gray-300"
-                  >
-                    <h5 className="font-bold">
-                      SDG {i.id} - {i.short}
-                    </h5>
-                    <p className="text-xs">{i.details}</p>
-                  </label>
-                </div>
-              </li>
-            ))}
-          </ul>
+          <Select
+            className="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg  focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            mode="multiple"
+            allowClear
+            style={{ width: "100%" }}
+            placeholder="Please select"
+            onChange={setTeamSdgs}
+            options={sdgOptions}
+          />
         </div>
-        <p className="my-2 text-sm">{skillsToString}</p>
 
         <button
           type="submit"

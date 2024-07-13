@@ -19,9 +19,10 @@ export type MATCH_REQUEST_ENTRY = {
   id: string;
   name: string;
   message: string;
-  phone: string;
+  email: string;
   teamName: string;
   sdgsOfInterest: string[];
+  teamMajors: string[];
   members: PARTICIPANT[];
   memberEmails: string[];
   participation_status: PARTICIPATION_STATUS;

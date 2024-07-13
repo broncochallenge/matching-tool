@@ -7,7 +7,7 @@ const EntryList: React.FC = () => {
   const [entries, setEntries] = useState<MATCH_REQUEST_ENTRY[]>([]);
   const [loading, setLoading] = useState(false);
   useEffect(() => {
-    async function fetchMyAPI() {
+    async function fetchMemberRequests() {
       setLoading(true);
       let response = await getAllTeams();
       setLoading(false);
@@ -17,7 +17,7 @@ const EntryList: React.FC = () => {
       }
     }
 
-    fetchMyAPI();
+    fetchMemberRequests();
   }, []);
 
   return (
@@ -30,6 +30,9 @@ const EntryList: React.FC = () => {
             </h1>
           }
           bordered
+          locale={{
+            emptyText: "No member requests at the moment. Check back later.",
+          }}
           itemLayout="vertical"
           dataSource={entries}
           loading={loading}
@@ -42,14 +45,14 @@ const EntryList: React.FC = () => {
                   className="dark:text-gray-400"
                   key="list-loadmore-edit"
                 >
-                  ☎️ Phone: {item.phone}
+                  📧 Email: {item.email}
                 </a>,
                 <a
                   className="dark:text-gray-400"
-                  href={`tel:${item.phone}`}
+                  href={`mailto:${item.email}`}
                   key="list-loadmore-more"
                 >
-                  Call {item.name}
+                  Email {item.name}
                 </a>,
               ]}
             >
@@ -57,10 +60,10 @@ const EntryList: React.FC = () => {
                 title={
                   <div>
                     <h1 className="dark:text-gray-400">
-                      Posted by: {item.name}
+                      <strong>Posted by:</strong> {item.name}
                     </h1>
                     <h1 className="dark:text-gray-400">
-                      Team: {item.teamName}
+                      <strong>Team:</strong> {item.teamName}
                     </h1>
                   </div>
                 }
@@ -68,18 +71,24 @@ const EntryList: React.FC = () => {
                   <p className="dark:text-gray-400">{item.message}</p>
                 }
               />
-              <div className="dark:text-gray-400">
-                Skills we are looking for:{" "}
-                {(item.desired_skills || []).join(", ")}
-              </div>
-              <div className="dark:text-gray-400">
-                SDGs of Interest: &nbsp;
-                <Space wrap>
-                  {(item.sdgsOfInterest || []).map((sdg) => {
-                    return <Tag key={sdg}> SDG #{sdg.toUpperCase()}</Tag>;
-                  })}
-                </Space>
-              </div>
+              <Space direction="vertical" size={"middle"}>
+                <div className="dark:text-gray-400">
+                  <strong>Skills we are looking for:</strong>{" "}
+                  {(item.desired_skills || []).join(", ")}
+                </div>
+                <div className="dark:text-gray-400">
+                  <strong>SDGs of Interest:</strong> &nbsp;
+                  <Space wrap>
+                    {(item.sdgsOfInterest || []).map((sdg) => {
+                      return <Tag key={sdg}> SDG #{sdg.toUpperCase()}</Tag>;
+                    })}
+                  </Space>
+                </div>
+                <div className="dark:text-gray-400">
+                  <strong>Majors of current members:</strong> &nbsp;
+                  {(item.teamMajors || []).join(", ")}
+                </div>
+              </Space>
             </List.Item>
           )}
         />
