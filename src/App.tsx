@@ -3,14 +3,17 @@ import MatchinToolHome from "./Screens/MatchinToolHome";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from "./Screens/ErrorPage";
 import FindTeamMembers from "./Screens/FindTeamMembers";
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <MatchinToolHome />,
-    errorElement: <ErrorPage />,
-  },
-  { path: "/find-team-members", element: <FindTeamMembers /> },
-]);
+const router = createBrowserRouter(
+  [
+    {
+      path: "/",
+      element: <MatchinToolHome />,
+      errorElement: <ErrorPage />,
+    },
+    { path: "/find-team-members", element: <FindTeamMembers /> },
+  ],
+  { basename: "/matching-tool" }
+);
 
 function App() {
   return (
