@@ -41,35 +41,42 @@ export async function addEntry(entry: MATCH_REQUEST_ENTRY) {
 }
 
 export async function sendSessionTokenEmail(email: string, token: string) {
-  const text = `Your session token for accessing the Bronco Challenge Matching Tool is below. This token is valid for 1 hour from the time of this email.
+  const text = `To access Bronco Challenge Matching Tool, please use the following one-time password (OTP). This OTP is valid for 1 hour.
 
-Session Token: ${token}
+Your OTP: ${token}
 
-Please use this token to log in and continue your work on the platform. If you did not request this token, please ignore this email or contact our support team.
+If you did not request this, please ignore this email.
 
-Thank you,
-The Bronco Challenge Team`;
+Best regards,
+The Bronco Challenge Team
+`;
 
   const html = `<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Your Session Token for the Bronco Challenge Matching Tool</title>
+  <meta charset="UTF-8">
+  <title>Bronco Challenge OTP</title>
 </head>
 <body>
-    <p>Your session token for accessing the Bronco Challenge Matching Tool is below. This token is valid for 1 hour from the time of this email.</p>
-    <p><strong>Session Token:</strong> ${token}</p>
-    <p>Please use this token to log in and continue your work on the platform. If you did not request this token, please ignore this email or contact our support team.</p>
-    <p>Thank you,<br>The Bronco Challenge Team</p>
+  <div style="font-family: Arial, sans-serif; color: #333;">
+    <h2 style="color: #2E86C1;">Bronco Challenge</h2>
+    <p>To access Matching Tool, please use the following one-time password (OTP). This OTP is valid for 1 hour.</p>
+    <h3 style="color: #2E86C1;">Your OTP: <span style="color: #E74C3C;">${token}</span></h3>
+    <p>If you did not request this, please ignore this email.</p>
+    <br>
+    <p>Best regards,</p>
+    <p>The Bronco Challenge Team</p>
+  </div>
 </body>
 </html>
+
 `;
   await setDoc(
     doc(collection(db, "mail"), (Math.random() * 10000).toString()),
     {
       to: email,
       message: {
-        subject: "Your Session Token for the Bronco Challenge Matching Tool",
+        subject: "Your One-Time Password (OTP) for Bronco Challenge Access",
         text,
         html,
       },
@@ -102,21 +109,23 @@ export async function getAllTeams() {
 
 export async function generateToken(email: string) {
   try {
-    const docRef = doc(collection(db, "sessionToken"));
+    const token = generateRandomSixDigitString();
+    const docRef = doc(db, "sessionToken", token);
+
     const sessionToken: SESSION_TOKEN = {
-      id: docRef.id,
+      id: token,
       time: Date.now().toString(),
       email,
     };
 
     await setDoc(docRef, sessionToken)
       .then(async () => {
-        await sendSessionTokenEmail(email, docRef.id).then(() => {
-          message.success("Check your email for session token.");
+        await sendSessionTokenEmail(email, token).then(() => {
+          message.success("Check your email for OTP.");
         });
       })
       .catch(() => {
-        message.error("Error sending token. Try again!");
+        message.error("Error sending OTP. Try again!");
       });
   } catch (e) {
     console.error("Error adding document: ", e);
@@ -160,4 +169,7 @@ function isLaterThanOneHourAgo(pastTime: number) {
 
   // Compare the pastTime with the timestamp of 1 hour ago
   return pastTime > oneHourAgo;
+}
+function generateRandomSixDigitString(): string {
+  return Math.floor(100000 + Math.random() * 900000).toString();
 }

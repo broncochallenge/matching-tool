@@ -40,20 +40,9 @@ const EntryList: React.FC = () => {
           renderItem={(item) => (
             <List.Item
               actions={[
-                <a
-                  href="#"
-                  className="dark:text-gray-400"
-                  key="list-loadmore-edit"
-                >
-                  📧 Email: {item.email}
-                </a>,
-                <a
-                  className="dark:text-gray-400"
-                  href={`mailto:${item.email}`}
-                  key="list-loadmore-more"
-                >
-                  Email {item.name}
-                </a>,
+                <p className="dark:text-gray-400" key="list-loadmore-edit">
+                  <strong>Email:</strong> {item.email}
+                </p>,
               ]}
             >
               <List.Item.Meta

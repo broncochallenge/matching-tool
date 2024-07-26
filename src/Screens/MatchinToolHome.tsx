@@ -2,12 +2,13 @@ import { FormEvent, useState } from "react";
 import Footer from "../Components/Footer";
 import Navbar from "../Components/Navbar";
 import { useNavigate } from "react-router-dom";
-import { Modal, message } from "antd";
+import { GetProps, Input, Modal, message } from "antd";
 import Spinner from "../Components/Spinner";
 import { generateToken, loginWithToken } from "../firebase/functions";
 import EntryList from "../Components/EntryList";
 
 export default function MatchinToolHome() {
+  type OTPProps = GetProps<typeof Input.OTP>;
   const [loading, setLoading] = useState(false);
   const [gettingToken, setGettingToken] = useState(false);
   const [open, setOpen] = useState(false);
@@ -33,6 +34,15 @@ export default function MatchinToolHome() {
 
   const onSubmitForm = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+  };
+
+  const onChange: OTPProps["onChange"] = (text) => {
+    setToken(text);
+  };
+
+  const sharedProps: OTPProps = {
+    onChange,
+    size: "large",
   };
 
   return (
@@ -70,7 +80,7 @@ export default function MatchinToolHome() {
       </section>
       <Modal
         open={open}
-        title="Login with one-time token"
+        title="Login with one-time password (OTP)"
         onOk={handleOk}
         onCancel={handleCancel}
         footer={false}
@@ -95,29 +105,21 @@ export default function MatchinToolHome() {
               }}
             />
           </div>
-          <div className="mb-2">
+          <div className="mb-4">
             <label
               htmlFor="teamName"
               className="block mb-2 text-sm font-medium text-gray-900 "
             >
-              One-time token
+              Enter OTP
             </label>
-            <input
-              type="text"
-              id="teamName"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-              required
-              onChange={(e) => {
-                setToken(e.target.value);
-              }}
-            />
+            <Input.OTP length={6} {...sharedProps} />
           </div>
           <div className="mb-2 flex ">
             <button
               type="button"
               onClick={async () => {
                 if (!yourEmail) return message.warning("Email is required.");
-                if (!token) return message.warning("Token is required.");
+                if (!token) return message.warning("OTP is required.");
                 setLoading(true);
                 await loginWithToken(token, yourEmail)
                   .finally(() => {
@@ -144,7 +146,7 @@ export default function MatchinToolHome() {
               }}
               className=" flex gap-x-3 justify-center items-center py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 "
             >
-              Get token {gettingToken && <Spinner />}
+              Get OTP {gettingToken && <Spinner />}
             </button>
           </div>
         </form>
