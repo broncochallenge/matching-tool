@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/matching-tool/static/css/main.a4a09c5b.css",
-    "main.js": "/matching-tool/static/js/main.13df252c.js",
+    "main.css": "/matching-tool/static/css/main.030d6ccb.css",
+    "main.js": "/matching-tool/static/js/main.e6c56a7b.js",
     "static/js/453.8a932592.chunk.js": "/matching-tool/static/js/453.8a932592.chunk.js",
     "static/media/android-chrome-512x512.png": "/matching-tool/static/media/android-chrome-512x512.1e415604a8521ee33735.png",
     "index.html": "/matching-tool/index.html",
-    "main.a4a09c5b.css.map": "/matching-tool/static/css/main.a4a09c5b.css.map",
-    "main.13df252c.js.map": "/matching-tool/static/js/main.13df252c.js.map",
+    "main.030d6ccb.css.map": "/matching-tool/static/css/main.030d6ccb.css.map",
+    "main.e6c56a7b.js.map": "/matching-tool/static/js/main.e6c56a7b.js.map",
     "453.8a932592.chunk.js.map": "/matching-tool/static/js/453.8a932592.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a4a09c5b.css",
-    "static/js/main.13df252c.js"
+    "static/css/main.030d6ccb.css",
+    "static/js/main.e6c56a7b.js"
   ]
 }
