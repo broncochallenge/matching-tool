@@ -12,7 +12,7 @@ export default function MatchinToolHome() {
           <div className="bg-[rgb(245,245,245)] dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-8 md:p-12 mb-8">
             <a
               target="_blank"
-              href="https://dull-glove-89d.notion.site/Bronco-Challenge-Matching-Tool-User-Instructions-95312b15062249118ebd91330dc821e7?pvs=4"
+              href="https://github.com/broncochallenge/matching-tool#getting-started-with-the-matching-tool"
               className="bg-blue-100 text-blue-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded-md dark:bg-gray-700 dark:text-blue-400 mb-2"
             >
               <svg
@@ -36,7 +36,7 @@ export default function MatchinToolHome() {
             </p>
             <a
               target="_blank"
-              href="https://dull-glove-89d.notion.site/Bronco-Challenge-Matching-Tool-User-Instructions-95312b15062249118ebd91330dc821e7?pvs=4"
+              href="https://github.com/broncochallenge/matching-tool#getting-started-with-the-matching-tool"
               className="text-blue-600 dark:text-blue-500 hover:underline font-medium text-lg inline-flex items-center"
             >
               Read instruction
