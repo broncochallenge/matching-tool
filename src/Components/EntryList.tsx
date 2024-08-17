@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { List, Space, Tag } from "antd";
 import { MATCH_REQUEST_ENTRY } from "../firebase/data";
 import { getAllTeams } from "../firebase/functions";
+import { Link } from "react-router-dom";
 
 const EntryList: React.FC = () => {
   const [entries, setEntries] = useState<MATCH_REQUEST_ENTRY[]>([]);
@@ -25,10 +26,19 @@ const EntryList: React.FC = () => {
       <div className="max-w-3xl mx-auto p-4 ">
         <List
           header={
-            <h1 className="text-2xl font-bold dark:text-gray-400">
-              Teams' members request
-            </h1>
+            <div className="flex justify-between items-center ">
+              <h1 className="text-2xl font-bold dark:text-gray-400">
+                Teams' student requests
+              </h1>
+              <Link
+                to="/join-a-team"
+                className=" flex gap-x-3 justify-center items-center py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 "
+              >
+                Advertise your interests and skills
+              </Link>
+            </div>
           }
+          extra={<div>EntryList</div>}
           bordered
           locale={{
             emptyText: "No member requests at the moment. Check back later.",
@@ -38,13 +48,7 @@ const EntryList: React.FC = () => {
           loading={loading}
           className="dark:text-gray-400"
           renderItem={(item) => (
-            <List.Item
-              actions={[
-                <p className="dark:text-gray-400" key="list-loadmore-edit">
-                  <strong>Email:</strong> {item.email}
-                </p>,
-              ]}
-            >
+            <List.Item>
               <List.Item.Meta
                 title={
                   <div>
@@ -74,8 +78,12 @@ const EntryList: React.FC = () => {
                   </Space>
                 </div>
                 <div className="dark:text-gray-400">
-                  <strong>Majors of current members:</strong> &nbsp;
+                  <strong>Majors of current students:</strong> &nbsp;
                   {(item.teamMajors || []).join(", ")}
+                </div>
+                <div className="dark:text-gray-400">
+                  <strong>Email:</strong> &nbsp;
+                  {item.email}
                 </div>
               </Space>
             </List.Item>

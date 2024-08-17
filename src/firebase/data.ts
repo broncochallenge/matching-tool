@@ -35,8 +35,8 @@ export type PARTICIPANT = {
   email: string;
   academic_major: string;
   academic_level: string;
-  team: string[];
   skills: string[];
+  sdgsOfInterest: string[];
 };
 
 const sdgs: UN_SDG[] = [

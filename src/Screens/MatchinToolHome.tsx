@@ -1,159 +1,164 @@
-import { FormEvent, useState } from "react";
 import Footer from "../Components/Footer";
 import Navbar from "../Components/Navbar";
-import { useNavigate } from "react-router-dom";
-import { GetProps, Input, Modal, message } from "antd";
-import Spinner from "../Components/Spinner";
-import { generateToken, loginWithToken } from "../firebase/functions";
-import EntryList from "../Components/EntryList";
+import { Link } from "react-router-dom";
 
 export default function MatchinToolHome() {
-  type OTPProps = GetProps<typeof Input.OTP>;
-  const [loading, setLoading] = useState(false);
-  const [gettingToken, setGettingToken] = useState(false);
-  const [open, setOpen] = useState(false);
-  const [token, setToken] = useState("");
-  const [yourEmail, setYourEmail] = useState("");
-  const navigate = useNavigate();
-
-  const showModal = () => {
-    setOpen(true);
-  };
-
-  const handleOk = () => {
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-      setOpen(false);
-    }, 3000);
-  };
-
-  const handleCancel = () => {
-    setOpen(false);
-  };
-
-  const onSubmitForm = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-  };
-
-  const onChange: OTPProps["onChange"] = (text) => {
-    setToken(text);
-  };
-
-  const sharedProps: OTPProps = {
-    onChange,
-    size: "large",
-  };
-
   return (
     <div className="dark:bg-gray-800 min-h-screen">
       <Navbar />
-      <section className="bg-center bg-no-repeat bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg')] bg-wmu_gold bg-blend-multiply">
-        <div className="px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-56">
-          <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">
-            Find Your Perfect Team for the Bronco Challenge
-          </h1>
-          <p className="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">
-            Connect with peers, collaborate on sustainability projects, and make
-            a lasting impact.
-          </p>
-          <div className="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
-            <button
-              onClick={showModal}
-              className="inline-flex justify-center hover:text-gray-900 items-center py-3 px-5 sm:ms-4 text-base font-medium text-center text-white rounded-lg border border-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-400"
+
+      <section className="bg-white dark:bg-gray-900">
+        <div className="py-8 px-4 mx-auto max-w-screen-xl">
+          <div className="bg-[rgb(245,245,245)] dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-8 md:p-12 mb-8">
+            <a
+              target="_blank"
+              href="https://dull-glove-89d.notion.site/Bronco-Challenge-Matching-Tool-User-Instructions-95312b15062249118ebd91330dc821e7?pvs=4"
+              className="bg-blue-100 text-blue-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded-md dark:bg-gray-700 dark:text-blue-400 mb-2"
             >
-              Find Team Members
-            </button>
-            <button
-              onClick={() => {
-                window.scrollTo({
-                  top: document.body.scrollHeight,
-                  behavior: "smooth",
-                });
-              }}
-              className="inline-flex justify-center hover:text-gray-900 items-center py-3 px-5 sm:ms-4 text-base font-medium text-center text-white rounded-lg border border-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-400"
+              <svg
+                className="w-2.5 h-2.5 me-1.5"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 20 14"
+              >
+                <path d="M11 0H2a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm8.585 1.189a.994.994 0 0 0-.9-.138l-2.965.983a1 1 0 0 0-.685.949v8a1 1 0 0 0 .675.946l2.965 1.02a1.013 1.013 0 0 0 1.032-.242A1 1 0 0 0 20 12V2a1 1 0 0 0-.415-.811Z" />
+              </svg>
+              Instruction
+            </a>
+            <h1 className="text-gray-900 dark:text-white text-3xl md:text-5xl font-extrabold mb-2">
+              Find Your Perfect Team for the Bronco Challenge
+            </h1>
+            <p className="text-lg font-normal text-gray-500 dark:text-gray-400 mb-6">
+              Connect with peers, collaborate on sustainability projects, and
+              make a lasting impact. Instruction is highly recommended for first
+              time users
+            </p>
+            <a
+              target="_blank"
+              href="https://dull-glove-89d.notion.site/Bronco-Challenge-Matching-Tool-User-Instructions-95312b15062249118ebd91330dc821e7?pvs=4"
+              className="text-blue-600 dark:text-blue-500 hover:underline font-medium text-lg inline-flex items-center"
             >
-              Join a Team
-            </button>
+              Read instruction
+              <svg
+                className="w-3.5 h-3.5 ms-2 rtl:rotate-180"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 14 10"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M1 5h12m0 0L9 1m4 4L9 9"
+                />
+              </svg>
+            </a>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="bg-[rgb(245,245,245)] dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-8 md:p-12">
+              <Link
+                to="/students"
+                className="bg-green-100 text-green-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded-md dark:bg-gray-700 dark:text-green-400 mb-2"
+              >
+                <svg
+                  className="w-2.5 h-2.5 me-1.5"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 18 18"
+                >
+                  <path d="M17 11h-2.722L8 17.278a5.512 5.512 0 0 1-.9.722H17a1 1 0 0 0 1-1v-5a1 1 0 0 0-1-1ZM6 0H1a1 1 0 0 0-1 1v13.5a3.5 3.5 0 1 0 7 0V1a1 1 0 0 0-1-1ZM3.5 15.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2ZM16.132 4.9 12.6 1.368a1 1 0 0 0-1.414 0L9 3.55v9.9l7.132-7.132a1 1 0 0 0 0-1.418Z" />
+                </svg>
+                Teams
+              </Link>
+              <h2 className="text-gray-900 dark:text-white text-3xl font-extrabold mb-2">
+                For Teams looking for students
+              </h2>
+              <p className="text-lg font-normal text-gray-500 dark:text-gray-400 mb-4">
+                Browse the list of student profiles. Each profile shows the
+                student's contact information, major, SDGs of interest and
+                skillsets.
+              </p>
+              <Link
+                to="/students"
+                className="inline-flex justify-center items-center py-2.5 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
+              >
+                Find Team Members
+                <svg
+                  className="w-3.5 h-3.5 ms-2 rtl:rotate-180"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 14 10"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M1 5h12m0 0L9 1m4 4L9 9"
+                  />
+                </svg>
+              </Link>
+            </div>
+            <div className="bg-[rgb(245,245,245)] dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-8 md:p-12">
+              <Link
+                to="/team-requests"
+                className="bg-purple-100 text-purple-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded-md dark:bg-gray-700 dark:text-purple-400 mb-2"
+              >
+                <svg
+                  className="w-2.5 h-2.5 me-1.5"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 20 16"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 4 1 8l4 4m10-8 4 4-4 4M11 1 9 15"
+                  />
+                </svg>
+                Students
+              </Link>
+              <h2 className="text-gray-900 dark:text-white text-3xl font-extrabold mb-2">
+                For Students looking to join a team
+              </h2>
+              <p className="text-lg font-normal text-gray-500 dark:text-gray-400 mb-4">
+                Browse the list of team requests. Each request shows the team's
+                contact information and the skills they are looking for.
+              </p>
+              <Link
+                to="/team-requests"
+                className="inline-flex justify-center items-center py-2.5 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
+              >
+                Join a Team
+                <svg
+                  className="w-3.5 h-3.5 ms-2 rtl:rotate-180"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 14 10"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M1 5h12m0 0L9 1m4 4L9 9"
+                  />
+                </svg>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
-      <Modal
-        open={open}
-        title="Login with one-time password (OTP)"
-        onOk={handleOk}
-        onCancel={handleCancel}
-        footer={false}
-      >
-        <form onSubmit={onSubmitForm} className=" ">
-          <div className="mb-2">
-            <label
-              htmlFor="fullName"
-              className="block mb-2 text-sm font-medium text-gray-900 "
-            >
-              Your WMU Email
-            </label>
-            <input
-              type="text"
-              autoComplete="given-name"
-              id="fullName"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  "
-              placeholder="firstname.lastname@wmich.edu"
-              required
-              onChange={(e) => {
-                setYourEmail(e.target.value);
-              }}
-            />
-          </div>
-          <div className="mb-4">
-            <label
-              htmlFor="teamName"
-              className="block mb-2 text-sm font-medium text-gray-900 "
-            >
-              Enter OTP
-            </label>
-            <Input.OTP length={6} {...sharedProps} />
-          </div>
-          <div className="mb-2 flex ">
-            <button
-              type="button"
-              onClick={async () => {
-                if (!yourEmail) return message.warning("Email is required.");
-                if (!token) return message.warning("OTP is required.");
-                setLoading(true);
-                await loginWithToken(token, yourEmail)
-                  .finally(() => {
-                    setLoading(false);
-                  })
-                  .then((response) => {
-                    if (response) {
-                      navigate(`/find-team-members?token=${token}`);
-                    }
-                  });
-              }}
-              className=" flex gap-x-3 justify-center items-center text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
-            >
-              Login {loading && <Spinner />}
-            </button>
-            <button
-              type="button"
-              onClick={async () => {
-                if (!yourEmail) return message.warning("Email is required.");
-                setGettingToken(true);
-                await generateToken(yourEmail).finally(() => {
-                  setGettingToken(false);
-                });
-              }}
-              className=" flex gap-x-3 justify-center items-center py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 "
-            >
-              Get OTP {gettingToken && <Spinner />}
-            </button>
-          </div>
-        </form>
-      </Modal>
-      <div id="entryList">
-        <EntryList />
-      </div>
+
       <Footer />
     </div>
   );

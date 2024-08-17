@@ -9,7 +9,7 @@ import {
 } from "firebase/firestore";
 import { db } from "./config";
 import { MATCH_REQUEST_ENTRY, PARTICIPANT, SESSION_TOKEN } from "./data";
-import { message } from "antd";
+import { message, notification } from "antd";
 
 export async function addEntry(entry: MATCH_REQUEST_ENTRY) {
   try {
@@ -107,6 +107,25 @@ export async function getAllTeams() {
   }
 }
 
+export async function getAllMembers() {
+  try {
+    // Get all participants
+    const participantsQuery = query(collection(db, "participants"));
+
+    const querySnapshot = await getDocs(participantsQuery);
+    const participants: PARTICIPANT[] = [];
+
+    querySnapshot.forEach((doc) => {
+      participants.push(doc.data() as PARTICIPANT);
+    });
+
+    return participants;
+  } catch (e) {
+    console.error("Error fetching documents: ", e);
+    return null;
+  }
+}
+
 export async function generateToken(email: string) {
   try {
     const token = generateRandomSixDigitString();
@@ -121,11 +140,15 @@ export async function generateToken(email: string) {
     await setDoc(docRef, sessionToken)
       .then(async () => {
         await sendSessionTokenEmail(email, token).then(() => {
-          message.success("Check your email for OTP.");
+          notification.success({
+            message: "OTP Sent to Your Email",
+            description:
+              "Please check your email. It may take up to 5 minutes for the OTP to arrive.",
+          });
         });
       })
       .catch(() => {
-        message.error("Error sending OTP. Try again!");
+        notification.error({ message: "Error sending OTP. Try again!" });
       });
   } catch (e) {
     console.error("Error adding document: ", e);
@@ -160,6 +183,18 @@ export async function loginWithToken(token: string, email?: string) {
     console.error("Error adding document: ", e);
   }
 }
+export async function crewateMember(member: PARTICIPANT) {
+  try {
+    // Add a new participant document with a generated id
+    const ref = doc(collection(db, "participants"));
+    const newMember = { ...member, id: ref.id };
+    await setDoc(ref, newMember);
+    return newMember;
+  } catch (e) {
+    console.error("Error adding document: ", e);
+  }
+}
+
 function isLaterThanOneHourAgo(pastTime: number) {
   // Get the current time in milliseconds
   const currentTime = Date.now();
@@ -172,4 +207,12 @@ function isLaterThanOneHourAgo(pastTime: number) {
 }
 function generateRandomSixDigitString(): string {
   return Math.floor(100000 + Math.random() * 900000).toString();
+}
+
+export function storeEmail(email: string): void {
+  localStorage.setItem("OTP_EMAIL", email);
+}
+
+export function fetchEmail(): string | null {
+  return localStorage.getItem("OTP_EMAIL");
 }

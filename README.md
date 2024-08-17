@@ -1,46 +1,36 @@
-# Getting Started with Create React App
+# Getting Started with the Matching Tool
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## For Teams Looking for New Members
 
-## Available Scripts
+If your team is looking for more members, click the **"Find Team Members"** button on the homepage. This will take you to a page listing students who have submitted their profiles. Each profile includes the student's contact information, major, SDGs of interest, and skillsets. You can contact the students directly via email. On this page, you can also click the **"Add Team Member Request"** button to submit a request for new team members.
 
-In the project directory, you can run:
+### How to Add a Team Member Request
 
-### `yarn start`
+Fill out the form with the following details, then click the **"Find Teammate"** button:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- **Your Name**
+- **Your Email**
+- **Your Team Name**
+- **A Message to Potential Team Members**
+- **The Majors of Your Current Team Members**
+- **The Skills You’re Looking for in a New Teammate**
+- **The Sustainable Development Goals Relevant to Your Project**
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Your request will be made public, and students can contact you via email.
 
-### `yarn test`
+## For Students Looking to Join a Team
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+If you are a student looking to join a team, click the **"Join a Team"** button on the homepage. This will take you to a page listing team requests. Each request includes the team's contact information and the skills they need. You can contact the teams directly via email. On this page, you can also click the **"Advertise Your Interests and Skills"** button to submit your information.
 
-### `yarn build`
+### How to Submit Your Interests and Skills
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Fill out the form with the following details, then click the **"Advertise My Interests and Skills"** button:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Your Name**
+- **Your Email**
+- **Your Major**
+- **Your Academic Level**
+- **Your Skillsets**
+- **The Sustainable Development Goals You’re Interested In**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+**If you need assistance, contact Neil Drobny at neil.drobny@wmich.edu.**
