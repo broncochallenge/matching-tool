@@ -6,6 +6,8 @@ import FindTeamMembers from "./Screens/FindTeamMembers";
 import TeamRequests from "./Screens/TeamRequests";
 import JoinATeam from "./Screens/JoinATeam";
 import MembersList from "./Screens/MembersList";
+import MatchingToolInstructions from "./Screens/MatchingToolInstructions";
+import SiteMap from "./Screens/SiteMap";
 const router = createBrowserRouter(
   [
     {
@@ -15,6 +17,8 @@ const router = createBrowserRouter(
     },
     { path: "/find-team-members", element: <FindTeamMembers /> },
     { path: "/students", element: <MembersList /> },
+    { path: "/instruction", element: <MatchingToolInstructions /> },
+    { path: "/sitemap", element: <SiteMap /> },
     { path: "/team-requests", element: <TeamRequests /> },
     { path: "/join-a-team", element: <JoinATeam /> },
   ],

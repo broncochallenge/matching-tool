@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Footer() {
   return (
     <footer className="bg-white dark:bg-gray-800">
@@ -22,12 +24,9 @@ export default function Footer() {
             </a>
           </li>
           <li>
-            <a
-              href="https://wmich.edu/sustainability/initiatives/broncochallenge#:~:text=College%20of%20Business-,CONTACT,-Contact%20Professor%20Neil"
-              className="hover:underline"
-            >
-              Contact
-            </a>
+            <Link to="/sitemap" className="hover:underline">
+              Sitemap
+            </Link>
           </li>
         </ul>
       </div>
