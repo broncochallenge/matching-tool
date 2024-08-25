@@ -1,16 +1,17 @@
 {
   "files": {
-    "main.css": "/matching-tool/static/css/main.030d6ccb.css",
-    "main.js": "/matching-tool/static/js/main.e6c56a7b.js",
+    "main.css": "/matching-tool/static/css/main.424bb64a.css",
+    "main.js": "/matching-tool/static/js/main.43b507ba.js",
     "static/js/453.8a932592.chunk.js": "/matching-tool/static/js/453.8a932592.chunk.js",
+    "static/media/Bronco matching tool sitemap.svg": "/matching-tool/static/media/Bronco matching tool sitemap.20cdfd47968cd4bf43195196bd886024.svg",
     "static/media/android-chrome-512x512.png": "/matching-tool/static/media/android-chrome-512x512.1e415604a8521ee33735.png",
     "index.html": "/matching-tool/index.html",
-    "main.030d6ccb.css.map": "/matching-tool/static/css/main.030d6ccb.css.map",
-    "main.e6c56a7b.js.map": "/matching-tool/static/js/main.e6c56a7b.js.map",
+    "main.424bb64a.css.map": "/matching-tool/static/css/main.424bb64a.css.map",
+    "main.43b507ba.js.map": "/matching-tool/static/js/main.43b507ba.js.map",
     "453.8a932592.chunk.js.map": "/matching-tool/static/js/453.8a932592.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.030d6ccb.css",
-    "static/js/main.e6c56a7b.js"
+    "static/css/main.424bb64a.css",
+    "static/js/main.43b507ba.js"
   ]
 }
