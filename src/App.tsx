@@ -22,7 +22,7 @@ const router = createBrowserRouter(
     { path: "/team-requests", element: <TeamRequests /> },
     { path: "/join-a-team", element: <JoinATeam /> },
   ],
-  { basename: "/matching-tool" }
+  { basename: process.env.PUBLIC_URL }
 );
 
 function App() {

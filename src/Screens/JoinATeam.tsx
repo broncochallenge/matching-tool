@@ -99,7 +99,7 @@ export default function JoinATeam() {
           <div className="mb-2">
             <label
               htmlFor="fullName"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              className="block mb-2 text-sm font-medium text-gray-900 "
             >
               Your Name
             </label>
@@ -107,7 +107,7 @@ export default function JoinATeam() {
               type="text"
               autoComplete="given-name"
               id="fullName"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 d"
               placeholder="John Doe"
               required
               onChange={(e) => {
@@ -118,7 +118,7 @@ export default function JoinATeam() {
           <div className="mb-2">
             <label
               htmlFor="email"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              className="block mb-2 text-sm font-medium text-gray-900 "
             >
               Your email
             </label>
@@ -126,7 +126,7 @@ export default function JoinATeam() {
               type="email"
               autoComplete="email"
               id="email"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 d"
               placeholder="first.last@wmich.edu"
               required
               onChange={(e) => {
@@ -138,12 +138,12 @@ export default function JoinATeam() {
         <div className="mb-4">
           <label
             htmlFor="major"
-            className="block mb-4 text-sm font-medium text-gray-900 dark:text-white"
+            className="block mb-4 text-sm font-medium text-gray-900 "
           >
             What's your major?
           </label>
           <Select
-            className="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg  focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg  focus:ring-blue-500 focus:border-blue-500 d"
             style={{ width: "100%" }}
             placeholder="Please select"
             onChange={setMajor}
@@ -154,12 +154,12 @@ export default function JoinATeam() {
         <div className="mb-4">
           <label
             htmlFor="major"
-            className="block mb-4 text-sm font-medium text-gray-900 dark:text-white"
+            className="block mb-4 text-sm font-medium text-gray-900 "
           >
             What's your academic level?
           </label>
           <Select
-            className="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg  focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg  focus:ring-blue-500 focus:border-blue-500 d"
             style={{ width: "100%" }}
             placeholder="Please select"
             onChange={setAcademic_level}
@@ -170,12 +170,12 @@ export default function JoinATeam() {
         <div className="mb-4">
           <label
             htmlFor="sdgs"
-            className="block mb-4 text-sm font-medium text-gray-900 dark:text-white"
+            className="block mb-4 text-sm font-medium text-gray-900 "
           >
             What skillsets do you have?
           </label>
           <Select
-            className="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg  focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg  focus:ring-blue-500 focus:border-blue-500 d"
             mode="multiple"
             allowClear
             style={{ width: "100%" }}
@@ -189,12 +189,12 @@ export default function JoinATeam() {
         <div className="mb-4">
           <label
             htmlFor="sdgs"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            className="block mb-2 text-sm font-medium text-gray-900 "
           >
             What SDGs are you interested in?
           </label>
           <Select
-            className="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg  focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg  focus:ring-blue-500 focus:border-blue-500 d"
             mode="multiple"
             allowClear
             style={{ width: "100%" }}
@@ -207,7 +207,7 @@ export default function JoinATeam() {
 
         <button
           type="submit"
-          className="flex gap-x-3 justify-center items-center text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          className="flex gap-x-3 justify-center items-center text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center "
         >
           Advertise my interests and skills
           {loading && <Spinner />}

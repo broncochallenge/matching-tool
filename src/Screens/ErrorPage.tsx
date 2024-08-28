@@ -1,9 +1,18 @@
-export default function ErrorPage() {
-  return (
-    <div id="error-page">
-      <h1>Oops!</h1>
-      <p>Sorry, an unexpected error has occurred.</p>
-      <p></p>
-    </div>
-  );
-}
+import React from "react";
+import { Button, Result } from "antd";
+import { Link } from "react-router-dom";
+
+const ErrorPage: React.FC = () => (
+  <Result
+    status="404"
+    title="404"
+    subTitle="Sorry, the page you visited does not exist."
+    extra={
+      <Link to="/">
+        <Button type="primary">Back Home</Button>
+      </Link>
+    }
+  />
+);
+
+export default ErrorPage;

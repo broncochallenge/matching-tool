@@ -26,15 +26,30 @@ const EntryList: React.FC = () => {
       <div className="max-w-3xl mx-auto p-4 ">
         <List
           header={
-            <div className="flex justify-between items-center ">
+            <div className="flex justify-between items-center flex-wrap gap-3">
               <h1 className="text-2xl font-bold dark:text-gray-400">
                 Teams' student requests
               </h1>
               <Link
                 to="/join-a-team"
-                className=" flex gap-x-3 justify-center items-center py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 "
+                className="dark:bg-wmu_brown flex gap-x-2 justify-center items-center py-2.5 px-5 me-2 mb-2 text-sm font-medium text-white focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-wmu_brown focus:z-10 focus:ring-4 focus:ring-wmu_brown "
               >
-                Advertise your interests and skills
+                Advertise your interests and skills{" "}
+                <svg
+                  className="w-3.5 h-3.5 ms-2 rtl:rotate-180"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 14 10"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M1 5h12m0 0L9 1m4 4L9 9"
+                  />
+                </svg>
               </Link>
             </div>
           }
