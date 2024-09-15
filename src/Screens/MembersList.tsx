@@ -34,12 +34,10 @@ export default function MembersList() {
         <List
           header={
             <div className="flex justify-between items-center flex-wrap gap-3">
-              <h1 className="text-2xl font-bold dark:text-gray-400">
-                Available Students
-              </h1>
+              <h1 className="text-2xl font-bold ">Available Students</h1>
               <Link
                 to="/find-team-members"
-                className="dark:bg-wmu_brown flex gap-x-2 justify-center items-center py-2.5 px-5 me-2 mb-2 text-sm font-medium text-white focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-wmu_brown focus:z-10 focus:ring-4 focus:ring-wmu_brown "
+                className="flex gap-x-2 justify-center items-center py-2.5 px-5 me-2 mb-2 text-sm font-medium  focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-wmu_brown focus:z-10 focus:ring-4 focus:ring-wmu_brown "
               >
                 Add team member request{" "}
                 <svg
@@ -71,19 +69,19 @@ export default function MembersList() {
             <List.Item>
               <List.Item.Meta title={item.name} />
               <Space direction="vertical" size={"middle"}>
-                <p className="text-sm text-gray-500 truncate dark:text-gray-400">
+                <p className="text-sm text-gray-500  ">
                   <strong>Email:</strong> {item.email}
                 </p>
-                <p className="text-sm text-gray-500 truncate dark:text-gray-400">
+                <p className="text-sm text-gray-500  ">
                   <strong>Major:</strong> {item.academic_major}
                 </p>
-                <p className="text-sm text-gray-500 truncate dark:text-gray-400">
+                <p className="text-sm text-gray-500  ">
                   <strong>Level:</strong> {item.academic_level}
                 </p>
-                <p className="text-sm text-gray-500 truncate dark:text-gray-400">
+                <p className="text-sm text-gray-500  ">
                   <strong>Skills:</strong> {item.skills.join(", ")}
                 </p>
-                <p className="text-sm text-gray-500 truncate dark:text-gray-400">
+                <p className="text-sm text-gray-500  ">
                   <strong>SDGs of interest: </strong>
                   {item.sdgsOfInterest
                     .map((sdg) => `SDG #${sdg.toUpperCase()}`)

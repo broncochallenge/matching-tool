@@ -27,12 +27,10 @@ const EntryList: React.FC = () => {
         <List
           header={
             <div className="flex justify-between items-center flex-wrap gap-3">
-              <h1 className="text-2xl font-bold dark:text-gray-400">
-                Teams' student requests
-              </h1>
+              <h1 className="text-2xl font-bold ">Teams' student requests</h1>
               <Link
                 to="/join-a-team"
-                className="dark:bg-wmu_brown flex gap-x-2 justify-center items-center py-2.5 px-5 me-2 mb-2 text-sm font-medium text-white focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-wmu_brown focus:z-10 focus:ring-4 focus:ring-wmu_brown "
+                className="flex gap-x-2 justify-center items-center py-2.5 px-5 me-2 mb-2 text-sm font-medium  focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-wmu_brown focus:z-10 focus:ring-4 focus:ring-wmu_brown "
               >
                 Advertise your interests and skills{" "}
                 <svg
@@ -61,30 +59,28 @@ const EntryList: React.FC = () => {
           itemLayout="vertical"
           dataSource={entries}
           loading={loading}
-          className="dark:text-gray-400"
+          className=""
           renderItem={(item) => (
             <List.Item>
               <List.Item.Meta
                 title={
                   <div>
-                    <h1 className="dark:text-gray-400">
+                    <h1 className="">
                       <strong>Posted by:</strong> {item.name}
                     </h1>
-                    <h1 className="dark:text-gray-400">
+                    <h1 className="">
                       <strong>Team:</strong> {item.teamName}
                     </h1>
                   </div>
                 }
-                description={
-                  <p className="dark:text-gray-400">{item.message}</p>
-                }
+                description={<p className="">{item.message}</p>}
               />
               <Space direction="vertical" size={"middle"}>
-                <div className="dark:text-gray-400">
+                <div className="">
                   <strong>Skills we are looking for:</strong>{" "}
                   {(item.desired_skills || []).join(", ")}
                 </div>
-                <div className="dark:text-gray-400">
+                <div className="">
                   <strong>SDGs of Interest:</strong> &nbsp;
                   <Space wrap>
                     {(item.sdgsOfInterest || []).map((sdg) => {
@@ -92,11 +88,11 @@ const EntryList: React.FC = () => {
                     })}
                   </Space>
                 </div>
-                <div className="dark:text-gray-400">
+                <div className="">
                   <strong>Majors of current students:</strong> &nbsp;
                   {(item.teamMajors || []).join(", ")}
                 </div>
-                <div className="dark:text-gray-400">
+                <div className="">
                   <strong>Email:</strong> &nbsp;
                   {item.email}
                 </div>
