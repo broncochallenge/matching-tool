@@ -72,6 +72,8 @@ export default function FindTeamMembers() {
       sdgsOfInterest: teamSdgs,
       email: email,
       teamMajors,
+      time: Date.now().toString(),
+      active: true,
     };
 
     setLoading(true);

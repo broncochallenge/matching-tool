@@ -28,6 +28,10 @@ export type MATCH_REQUEST_ENTRY = {
   participation_status: PARTICIPATION_STATUS;
   /** Description: Skills that the team is looking for in a team member */
   desired_skills: string[];
+  /** New: added in v2 */
+  active: boolean;
+  /** New: added in v2 */
+  time: string;
 };
 export type PARTICIPANT = {
   id: string;
@@ -37,6 +41,10 @@ export type PARTICIPANT = {
   academic_level: string;
   skills: string[];
   sdgsOfInterest: string[];
+  /** New: added in v2 */
+  active: boolean;
+  /** New: added in v2 */
+  time: string;
 };
 
 const sdgs: UN_SDG[] = [

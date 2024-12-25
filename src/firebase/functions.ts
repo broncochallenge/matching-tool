@@ -6,6 +6,8 @@ import {
   query,
   getDocs,
   getDoc,
+  where,
+  updateDoc,
 } from "firebase/firestore";
 import { db } from "./config";
 import { MATCH_REQUEST_ENTRY, PARTICIPANT, SESSION_TOKEN } from "./data";
@@ -88,10 +90,35 @@ The Bronco Challenge Team
     });
 }
 
+export async function getActiveEntriesByEmail(email: string) {
+  try {
+    const entriesQuery = query(
+      collection(db, "challengeEntry"),
+      where("email", "==", email),
+      where("active", "==", true)
+    );
+
+    const querySnapshot = await getDocs(entriesQuery);
+    const entries: MATCH_REQUEST_ENTRY[] = [];
+
+    querySnapshot.forEach((doc) => {
+      entries.push(doc.data() as MATCH_REQUEST_ENTRY);
+    });
+
+    return entries;
+  } catch (e) {
+    console.error("Error fetching documents: ", e);
+    return null;
+  }
+}
+
 export async function getAllTeams() {
   try {
     // Get all entries
-    const entriesQuery = query(collection(db, "challengeEntry"));
+    const entriesQuery = query(
+      collection(db, "challengeEntry"),
+      where("active", "==", true)
+    );
 
     const querySnapshot = await getDocs(entriesQuery);
     const entries: MATCH_REQUEST_ENTRY[] = [];
@@ -110,7 +137,32 @@ export async function getAllTeams() {
 export async function getAllMembers() {
   try {
     // Get all participants
-    const participantsQuery = query(collection(db, "participants"));
+    const participantsQuery = query(
+      collection(db, "participants"),
+      where("active", "==", true)
+    );
+
+    const querySnapshot = await getDocs(participantsQuery);
+    const participants: PARTICIPANT[] = [];
+
+    querySnapshot.forEach((doc) => {
+      participants.push(doc.data() as PARTICIPANT);
+    });
+
+    return participants;
+  } catch (e) {
+    console.error("Error fetching documents: ", e);
+    return null;
+  }
+}
+export async function getActiveMembersByEmail(email: string) {
+  try {
+    // Get all participants
+    const participantsQuery = query(
+      collection(db, "participants"),
+      where("email", "==", email),
+      where("active", "==", true)
+    );
 
     const querySnapshot = await getDocs(participantsQuery);
     const participants: PARTICIPANT[] = [];
@@ -215,4 +267,17 @@ export function storeEmail(email: string): void {
 
 export function fetchEmail(): string | null {
   return localStorage.getItem("OTP_EMAIL");
+}
+
+export async function makeMemberInActive(i: string) {
+  const ref = doc(db, "participants", i);
+  return await updateDoc(ref, {
+    active: false,
+  });
+}
+export async function makeEntryInActive(i: string) {
+  const ref = doc(db, "challengeEntry", i);
+  return await updateDoc(ref, {
+    active: false,
+  });
 }

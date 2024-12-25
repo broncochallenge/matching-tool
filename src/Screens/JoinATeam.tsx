@@ -79,6 +79,8 @@ export default function JoinATeam() {
       sdgsOfInterest: sdgsSelected,
       skills,
       academic_level,
+      time: Date.now().toString(),
+      active: true,
     };
 
     setLoading(true);
