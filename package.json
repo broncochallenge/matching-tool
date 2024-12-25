@@ -6,7 +6,6 @@
     "name": "Usman Ayoabmi",
     "url": "https://github.com/Ayobamiu"
   },
-  "homepage": "http://broncochallenge.github.io/matching-tool",
   "private": true,
   "dependencies": {
     "@ant-design/icons": "^5.3.7",
