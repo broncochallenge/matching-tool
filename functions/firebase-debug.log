@@ -1,38 +1,33 @@
-[debug] [2024-12-25T00:11:31.113Z] ----------------------------------------------------------------------
-[debug] [2024-12-25T00:11:31.115Z] Command:       /Users/ayobamiu/.nvm/versions/node/v20.14.0/bin/node /usr/local/bin/firebase functions:shell
-[debug] [2024-12-25T00:11:31.115Z] CLI Version:   13.29.1
-[debug] [2024-12-25T00:11:31.115Z] Platform:      darwin
-[debug] [2024-12-25T00:11:31.115Z] Node Version:  v20.14.0
-[debug] [2024-12-25T00:11:31.115Z] Time:          Tue Dec 24 2024 19:11:31 GMT-0500 (Eastern Standard Time)
-[debug] [2024-12-25T00:11:31.115Z] ----------------------------------------------------------------------
+[debug] [2024-12-25T03:23:54.600Z] ----------------------------------------------------------------------
+[debug] [2024-12-25T03:23:54.602Z] Command:       /Users/ayobamiu/.nvm/versions/node/v20.14.0/bin/node /usr/local/bin/firebase functions:shell
+[debug] [2024-12-25T03:23:54.602Z] CLI Version:   13.29.1
+[debug] [2024-12-25T03:23:54.603Z] Platform:      darwin
+[debug] [2024-12-25T03:23:54.603Z] Node Version:  v20.14.0
+[debug] [2024-12-25T03:23:54.603Z] Time:          Tue Dec 24 2024 22:23:54 GMT-0500 (Eastern Standard Time)
+[debug] [2024-12-25T03:23:54.603Z] ----------------------------------------------------------------------
 [debug] 
-[debug] [2024-12-25T00:11:31.156Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2024-12-25T00:11:31.157Z] > authorizing via signed-in user (thebroncochallenge@gmail.com)
-[debug] [2024-12-25T00:11:31.157Z] [iam] checking project bronco-matching-tool for permissions ["firebase.projects.get"]
-[debug] [2024-12-25T00:11:31.157Z] Checked if tokens are valid: false, expires at: 1735086231613
-[debug] [2024-12-25T00:11:31.157Z] Checked if tokens are valid: false, expires at: 1735086231613
-[debug] [2024-12-25T00:11:31.158Z] > refreshing access token with scopes: []
-[debug] [2024-12-25T00:11:31.158Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
-[debug] [2024-12-25T00:11:31.158Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
-[debug] [2024-12-25T00:11:31.373Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
-[debug] [2024-12-25T00:11:31.373Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
-[debug] [2024-12-25T00:11:31.390Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/bronco-matching-tool:testIamPermissions [none]
-[debug] [2024-12-25T00:11:31.390Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/bronco-matching-tool:testIamPermissions x-goog-quota-user=projects/bronco-matching-tool
-[debug] [2024-12-25T00:11:31.390Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/bronco-matching-tool:testIamPermissions {"permissions":["firebase.projects.get"]}
-[debug] [2024-12-25T00:11:31.652Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/bronco-matching-tool:testIamPermissions 200
-[debug] [2024-12-25T00:11:31.652Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/bronco-matching-tool:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2024-12-25T03:23:54.644Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-12-25T03:23:54.644Z] > authorizing via signed-in user (thebroncochallenge@gmail.com)
+[debug] [2024-12-25T03:23:54.644Z] [iam] checking project bronco-matching-tool for permissions ["firebase.projects.get"]
+[debug] [2024-12-25T03:23:54.644Z] Checked if tokens are valid: true, expires at: 1735100388808
+[debug] [2024-12-25T03:23:54.644Z] Checked if tokens are valid: true, expires at: 1735100388808
+[debug] [2024-12-25T03:23:54.645Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/bronco-matching-tool:testIamPermissions [none]
+[debug] [2024-12-25T03:23:54.645Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/bronco-matching-tool:testIamPermissions x-goog-quota-user=projects/bronco-matching-tool
+[debug] [2024-12-25T03:23:54.645Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/bronco-matching-tool:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2024-12-25T03:23:54.881Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/bronco-matching-tool:testIamPermissions 200
+[debug] [2024-12-25T03:23:54.881Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/bronco-matching-tool:testIamPermissions {"permissions":["firebase.projects.get"]}
 [warn] ⚠  functions: Functions Emulator unable to start on port 5000, starting on 5001 instead. {"metadata":{"emulator":{"name":"functions"},"message":"Functions Emulator unable to start on port 5000, starting on 5001 instead."}}
-[debug] [2024-12-25T00:11:32.094Z] [functions] Functions Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
-[debug] [2024-12-25T00:11:32.094Z] defaultcredentials: writing to file /Users/ayobamiu/.config/firebase/thebroncochallenge_gmail_com_application_default_credentials.json
-[debug] [2024-12-25T00:11:32.095Z] DEBUG: Setting GAC to /Users/ayobamiu/.config/firebase/thebroncochallenge_gmail_com_application_default_credentials.json
-[debug] [2024-12-25T00:11:32.095Z] Checked if tokens are valid: true, expires at: 1735089090374
-[debug] [2024-12-25T00:11:32.095Z] Checked if tokens are valid: true, expires at: 1735089090374
-[debug] [2024-12-25T00:11:32.095Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/bronco-matching-tool/adminSdkConfig [none]
-[debug] [2024-12-25T00:11:32.301Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/bronco-matching-tool/adminSdkConfig 200
-[debug] [2024-12-25T00:11:32.302Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/bronco-matching-tool/adminSdkConfig {"projectId":"bronco-matching-tool","storageBucket":"bronco-matching-tool.firebasestorage.app"}
-[debug] [2024-12-25T00:11:32.321Z] [functions] Watching "/Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions" for Cloud Functions...
-[debug] [2024-12-25T00:11:32.328Z] Validating nodejs source
-[debug] [2024-12-25T00:11:32.860Z] > [functions] package.json contents: {
+[debug] [2024-12-25T03:23:55.118Z] [functions] Functions Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-12-25T03:23:55.119Z] defaultcredentials: writing to file /Users/ayobamiu/.config/firebase/thebroncochallenge_gmail_com_application_default_credentials.json
+[debug] [2024-12-25T03:23:55.120Z] DEBUG: Setting GAC to /Users/ayobamiu/.config/firebase/thebroncochallenge_gmail_com_application_default_credentials.json
+[debug] [2024-12-25T03:23:55.121Z] Checked if tokens are valid: true, expires at: 1735100388808
+[debug] [2024-12-25T03:23:55.121Z] Checked if tokens are valid: true, expires at: 1735100388808
+[debug] [2024-12-25T03:23:55.121Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/bronco-matching-tool/adminSdkConfig [none]
+[debug] [2024-12-25T03:23:55.282Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/bronco-matching-tool/adminSdkConfig 200
+[debug] [2024-12-25T03:23:55.282Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/bronco-matching-tool/adminSdkConfig {"projectId":"bronco-matching-tool","storageBucket":"bronco-matching-tool.firebasestorage.app"}
+[debug] [2024-12-25T03:23:55.293Z] [functions] Watching "/Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions" for Cloud Functions...
+[debug] [2024-12-25T03:23:55.297Z] Validating nodejs source
+[debug] [2024-12-25T03:23:55.867Z] > [functions] package.json contents: {
   "name": "functions",
   "description": "Cloud Functions for Firebase",
   "scripts": {
@@ -56,127 +51,128 @@
   },
   "private": true
 }
-[debug] [2024-12-25T00:11:32.861Z] Building nodejs source
-[debug] [2024-12-25T00:11:32.861Z] Failed to find version of module node: reached end of search path /Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/node_modules
+[debug] [2024-12-25T03:23:55.867Z] Building nodejs source
+[debug] [2024-12-25T03:23:55.868Z] Failed to find version of module node: reached end of search path /Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/node_modules
 [info] ✔  functions: Using node@20 from host. 
 [info] i  functions: Loaded environment variables from .env.local. 
-[debug] [2024-12-25T00:11:32.863Z] Could not find functions.yaml. Must use http discovery
-[debug] [2024-12-25T00:11:32.866Z] Found firebase-functions binary at '/Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/node_modules/.bin/firebase-functions'
-[info] Serving at port 8121
+[debug] [2024-12-25T03:23:55.870Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-12-25T03:23:55.872Z] Found firebase-functions binary at '/Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/node_modules/.bin/firebase-functions'
+[info] Serving at port 8782
 
-[debug] [2024-12-25T00:11:33.202Z] Got response from /__/functions.yaml {"endpoints":{"manageActivePosts":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"manageActivePosts"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
-[debug] [2024-12-25T00:11:33.213Z] [functions] Loaded functions definitions from source: manageActivePosts.
-[debug] [2024-12-25T00:11:33.213Z] [functions[us-central1-manageActivePosts]] http function initialized (http://127.0.0.1:5001/bronco-matching-tool/us-central1/manageActivePosts).
+[debug] [2024-12-25T03:23:56.302Z] Got response from /__/functions.yaml {"endpoints":{"manageActivePosts":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"manageActivePosts"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[debug] [2024-12-25T03:23:56.312Z] [functions] Loaded functions definitions from source: manageActivePosts.
+[debug] [2024-12-25T03:23:56.313Z] [functions[us-central1-manageActivePosts]] http function initialized (http://127.0.0.1:5001/bronco-matching-tool/us-central1/manageActivePosts).
 [info] i  functions: Loaded functions: manageActivePosts 
 [warn] ⚠  functions: The following emulators are not running, calls to these services will affect production: firestore, database, pubsub, storage, eventarc, tasks 
-[debug] [2024-12-25T00:11:37.929Z] >>> [apiv2][query] GET http://127.0.0.1:5001/bronco-matching-tool/us-central1/manageActivePosts/ [none]
-[debug] [2024-12-25T00:11:37.936Z] [work-queue] {"queuedWork":["/bronco-matching-tool/us-central1/manageActivePosts/-2024-12-25T00:11:37.935Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
-[debug] [2024-12-25T00:11:37.936Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/bronco-matching-tool/us-central1/manageActivePosts/-2024-12-25T00:11:37.935Z"],"workRunningCount":1}
-[debug] [2024-12-25T00:11:37.936Z] Accepted request GET /bronco-matching-tool/us-central1/manageActivePosts/ --> us-central1-manageActivePosts
-[debug] [2024-12-25T00:11:37.939Z] DEBUG: [functions] Runtime ready! Sending request!
-[debug] [2024-12-25T00:11:37.939Z] DEBUG: [functions] Got req.url=/bronco-matching-tool/us-central1/manageActivePosts/, mapping to path=/
+[debug] [2024-12-25T03:24:32.554Z] DEBUG: File /Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/index.js changed, reloading triggers
+[debug] [2024-12-25T03:24:33.559Z] Validating nodejs source
+[debug] [2024-12-25T03:24:34.127Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "20"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "base-64": "^1.0.0",
+    "firebase-admin": "^12.6.0",
+    "firebase-functions": "^6.0.1"
+  },
+  "devDependencies": {
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2024-12-25T03:24:34.127Z] Building nodejs source
+[debug] [2024-12-25T03:24:34.127Z] Failed to find version of module node: reached end of search path /Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/node_modules
+[info] ✔  functions: Using node@20 from host. 
 [info] i  functions: Loaded environment variables from .env.local. 
-[debug] [2024-12-25T00:11:37.945Z] DEBUG: [worker-pool] addWorker(us-central1-manageActivePosts)
-[debug] [2024-12-25T00:11:37.945Z] DEBUG: [worker-pool] Adding worker with key us-central1-manageActivePosts, total=1
-[debug] [2024-12-25T00:11:38.560Z] DEBUG: [runtime-status] [90819] Resolved module firebase-admin {"declared":true,"installed":true,"version":"12.7.0","resolution":"/Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/node_modules/firebase-admin/lib/index.js"}
-[debug] [2024-12-25T00:11:38.560Z] DEBUG: [runtime-status] [90819] Resolved module firebase-functions {"declared":true,"installed":true,"version":"6.2.0","resolution":"/Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/node_modules/firebase-functions/lib/v2/index.js"}
-[debug] [2024-12-25T00:11:38.560Z] DEBUG: [runtime-status] [90819] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}]
-[debug] [2024-12-25T00:11:38.560Z] DEBUG: [runtime-status] [90819] Resolved module firebase-functions {"declared":true,"installed":true,"version":"6.2.0","resolution":"/Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/node_modules/firebase-functions/lib/v2/index.js"}
-[debug] [2024-12-25T00:11:38.744Z] DEBUG: [runtime-status] [90819] Checked functions.config() {"config":{}}
-[debug] [2024-12-25T00:11:38.744Z] DEBUG: [runtime-status] [90819] firebase-functions has been stubbed. {"functionsResolution":{"declared":true,"installed":true,"version":"6.2.0","resolution":"/Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/node_modules/firebase-functions/lib/v2/index.js"}}
-[debug] [2024-12-25T00:11:38.744Z] DEBUG: [runtime-status] [90819] Resolved module firebase-functions {"declared":true,"installed":true,"version":"6.2.0","resolution":"/Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/node_modules/firebase-functions/lib/v2/index.js"}
-[debug] [2024-12-25T00:11:38.745Z] DEBUG: [runtime-status] [90819] Resolved module firebase-admin {"declared":true,"installed":true,"version":"12.7.0","resolution":"/Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/node_modules/firebase-admin/lib/index.js"}
-[debug] [2024-12-25T00:11:38.746Z] DEBUG: [runtime-status] [90819] Resolved module firebase-functions {"declared":true,"installed":true,"version":"6.2.0","resolution":"/Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/node_modules/firebase-functions/lib/v2/index.js"}
-[debug] [2024-12-25T00:11:38.746Z] DEBUG: [runtime-status] [90819] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"12.7.0","resolution":"/Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/node_modules/firebase-admin/lib/index.js"}}
-[debug] [2024-12-25T00:11:38.748Z] DEBUG: [runtime-status] [90819] initializeApp(DEFAULT) {"apiKey":"AIzaSyCo_r2KE8MY2SBIVNnGqaMEHWMqIjz_okE","authDomain":"bronco-matching-tool.firebaseapp.com","databaseURL":"https://bronco-matching-tool.firebaseio.com","projectId":"bronco-matching-tool","storageBucket":"bronco-matching-tool.appspot.com","messagingSenderId":"784943120628","appId":"1:784943120628:web:624c844b34bfb8375b1ea1","measurementId":"G-FQ9HQG4GE2"}
+[debug] [2024-12-25T03:24:34.129Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-12-25T03:24:34.130Z] Found firebase-functions binary at '/Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/node_modules/.bin/firebase-functions'
+[info] Serving at port 8722
+
+[debug] [2024-12-25T03:24:34.488Z] Got response from /__/functions.yaml {"endpoints":{"manageActivePosts":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"manageActivePosts"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[debug] [2024-12-25T03:24:34.496Z] [functions] Loaded functions definitions from source: manageActivePosts.
+[debug] [2024-12-25T03:25:29.087Z] >>> [apiv2][query] GET http://127.0.0.1:5001/bronco-matching-tool/us-central1/manageActivePosts/ [none]
+[debug] [2024-12-25T03:25:29.104Z] [work-queue] {"queuedWork":["/bronco-matching-tool/us-central1/manageActivePosts/-2024-12-25T03:25:29.104Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2024-12-25T03:25:29.104Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/bronco-matching-tool/us-central1/manageActivePosts/-2024-12-25T03:25:29.104Z"],"workRunningCount":1}
+[debug] [2024-12-25T03:25:29.105Z] Accepted request GET /bronco-matching-tool/us-central1/manageActivePosts/ --> us-central1-manageActivePosts
+[debug] [2024-12-25T03:25:29.119Z] DEBUG: [functions] Runtime ready! Sending request!
+[debug] [2024-12-25T03:25:29.120Z] DEBUG: [functions] Got req.url=/bronco-matching-tool/us-central1/manageActivePosts/, mapping to path=/
+[info] i  functions: Loaded environment variables from .env.local. 
+[debug] [2024-12-25T03:25:29.127Z] DEBUG: [worker-pool] addWorker(us-central1-manageActivePosts)
+[debug] [2024-12-25T03:25:29.128Z] DEBUG: [worker-pool] Adding worker with key us-central1-manageActivePosts, total=1
+[debug] [2024-12-25T03:25:30.077Z] DEBUG: [runtime-status] [93311] Resolved module firebase-admin {"declared":true,"installed":true,"version":"12.7.0","resolution":"/Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2024-12-25T03:25:30.078Z] DEBUG: [runtime-status] [93311] Resolved module firebase-functions {"declared":true,"installed":true,"version":"6.2.0","resolution":"/Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/node_modules/firebase-functions/lib/v2/index.js"}
+[debug] [2024-12-25T03:25:30.078Z] DEBUG: [runtime-status] [93311] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}]
+[debug] [2024-12-25T03:25:30.078Z] DEBUG: [runtime-status] [93311] Resolved module firebase-functions {"declared":true,"installed":true,"version":"6.2.0","resolution":"/Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/node_modules/firebase-functions/lib/v2/index.js"}
+[debug] [2024-12-25T03:25:30.289Z] DEBUG: [runtime-status] [93311] Checked functions.config() {"config":{}}
+[debug] [2024-12-25T03:25:30.289Z] DEBUG: [runtime-status] [93311] firebase-functions has been stubbed. {"functionsResolution":{"declared":true,"installed":true,"version":"6.2.0","resolution":"/Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/node_modules/firebase-functions/lib/v2/index.js"}}
+[debug] [2024-12-25T03:25:30.289Z] DEBUG: [runtime-status] [93311] Resolved module firebase-functions {"declared":true,"installed":true,"version":"6.2.0","resolution":"/Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/node_modules/firebase-functions/lib/v2/index.js"}
+[debug] [2024-12-25T03:25:30.291Z] DEBUG: [runtime-status] [93311] Resolved module firebase-admin {"declared":true,"installed":true,"version":"12.7.0","resolution":"/Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2024-12-25T03:25:30.292Z] DEBUG: [runtime-status] [93311] Resolved module firebase-functions {"declared":true,"installed":true,"version":"6.2.0","resolution":"/Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/node_modules/firebase-functions/lib/v2/index.js"}
+[debug] [2024-12-25T03:25:30.292Z] DEBUG: [runtime-status] [93311] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"12.7.0","resolution":"/Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/node_modules/firebase-admin/lib/index.js"}}
+[debug] [2024-12-25T03:25:30.294Z] DEBUG: [runtime-status] [93311] initializeApp(DEFAULT) {"storageBucket":"bronco-matching-tool.firebasestorage.app","projectId":"bronco-matching-tool"}
 [warn] ⚠  functions: The Cloud Firestore emulator is not running, so calls to Firestore will affect production. {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-manageActivePosts"},"extension":{},"message":"The Cloud Firestore emulator is not running, so calls to Firestore will affect production."}}
-[debug] [2024-12-25T00:11:38.751Z] DEBUG: [runtime-status] [90819] Functions runtime initialized. {"cwd":"/Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions","node_version":"20.14.0"}
-[debug] [2024-12-25T00:11:38.751Z] DEBUG: [runtime-status] [90819] Listening to port: /var/folders/90/9m5v8q556yxdd0zy0f_5ng7m0000gn/T/fire_emu_cbd81fca5169412e.sock
-[debug] [2024-12-25T00:11:38.760Z] DEBUG: [worker-us-central1-manageActivePosts-fbdc0843-7e33-47c2-9d3c-f88ec5953498]: IDLE
-[debug] [2024-12-25T00:11:38.760Z] DEBUG: [worker-pool] submitRequest(triggerId=us-central1-manageActivePosts)
-[debug] [2024-12-25T00:11:38.760Z] [functions] Beginning execution of "us-central1-manageActivePosts"
-[debug] [2024-12-25T00:11:38.761Z] DEBUG: [worker-us-central1-manageActivePosts-fbdc0843-7e33-47c2-9d3c-f88ec5953498]: BUSY
+[debug] [2024-12-25T03:25:30.298Z] DEBUG: [runtime-status] [93311] Functions runtime initialized. {"cwd":"/Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions","node_version":"20.14.0"}
+[debug] [2024-12-25T03:25:30.299Z] DEBUG: [runtime-status] [93311] Listening to port: /var/folders/90/9m5v8q556yxdd0zy0f_5ng7m0000gn/T/fire_emu_480b97eabd1d02bc.sock
+[debug] [2024-12-25T03:25:30.352Z] DEBUG: [worker-us-central1-manageActivePosts-1cd24777-a126-4b83-9c45-8b326df2201e]: IDLE
+[debug] [2024-12-25T03:25:30.352Z] DEBUG: [worker-pool] submitRequest(triggerId=us-central1-manageActivePosts)
+[debug] [2024-12-25T03:25:30.352Z] [functions] Beginning execution of "us-central1-manageActivePosts"
+[debug] [2024-12-25T03:25:30.352Z] DEBUG: [worker-us-central1-manageActivePosts-1cd24777-a126-4b83-9c45-8b326df2201e]: BUSY
 [info] >  {"structuredData":true,"severity":"INFO","message":"Hello logs!"} {"user":{"structuredData":true,"severity":"INFO","message":"Hello logs!"},"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-manageActivePosts"},"extension":{},"message":"\u001b[90m> \u001b[39m {\"structuredData\":true,\"severity\":\"INFO\",\"message\":\"Hello logs!\"}"}}
 [warn] ⚠  Google API requested!
    - URL: "https://oauth2.googleapis.com/token"
    - Be careful, this may be a production service. {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-manageActivePosts"},"extension":{},"message":"Google API requested!\n   - URL: \"https://oauth2.googleapis.com/token\"\n   - Be careful, this may be a production service."}}
+[debug] [2024-12-25T03:25:47.572Z] DEBUG: File /Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/index.js changed, reloading triggers
+[debug] [2024-12-25T03:25:48.582Z] Validating nodejs source
+[debug] [2024-12-25T03:25:49.784Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "20"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "base-64": "^1.0.0",
+    "firebase-admin": "^12.6.0",
+    "firebase-functions": "^6.0.1"
+  },
+  "devDependencies": {
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2024-12-25T03:25:49.784Z] Building nodejs source
+[debug] [2024-12-25T03:25:49.785Z] Failed to find version of module node: reached end of search path /Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/node_modules
+[info] ✔  functions: Using node@20 from host. 
+[debug] [2024-12-25T03:25:49.785Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-12-25T03:25:49.786Z] Found firebase-functions binary at '/Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/node_modules/.bin/firebase-functions'
+[info] Serving at port 8659
+
+[debug] [2024-12-25T03:25:50.149Z] Got response from /__/functions.yaml {"endpoints":{"manageActivePosts":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"manageActivePosts"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[debug] [2024-12-25T03:25:50.157Z] [functions] Loaded functions definitions from source: manageActivePosts.
+[debug] [2024-12-25T03:25:50.157Z] DEBUG: [worker-pool] Marking BUSY worker to finish (us-central1-manageActivePosts)
+[debug] [2024-12-25T03:25:50.157Z] DEBUG: [worker-us-central1-manageActivePosts-1cd24777-a126-4b83-9c45-8b326df2201e]: FINISHING
 [error] i  Your function timed out after ~60s. To configure this timeout, see
       https://firebase.google.com/docs/functions/manage-functions#set_timeout_and_memory_allocation. {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-manageActivePosts"},"extension":{},"message":"Your function timed out after ~60s. To configure this timeout, see\n      https://firebase.google.com/docs/functions/manage-functions#set_timeout_and_memory_allocation."}}
 [error] i  Request to function failed: Error: socket hang up {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-manageActivePosts"},"extension":{},"message":"Request to function failed: Error: socket hang up"}}
-[debug] [2024-12-25T00:12:38.817Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
-[debug] [2024-12-25T00:12:38.828Z] <<< [apiv2][status] GET http://127.0.0.1:5001/bronco-matching-tool/us-central1/manageActivePosts/ 500
-[debug] [2024-12-25T00:12:38.828Z] <<< [apiv2][body] GET http://127.0.0.1:5001/bronco-matching-tool/us-central1/manageActivePosts/ {"code":"ECONNRESET"}
-[debug] [2024-12-25T00:12:38.831Z] DEBUG: [worker-us-central1-manageActivePosts-fbdc0843-7e33-47c2-9d3c-f88ec5953498]: exited
-[debug] [2024-12-25T00:12:38.831Z] DEBUG: [worker-us-central1-manageActivePosts-fbdc0843-7e33-47c2-9d3c-f88ec5953498]: FINISHED
-[debug] [2024-12-25T00:15:03.416Z] DEBUG: File /Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/index.js changed, reloading triggers
-[debug] [2024-12-25T00:15:04.422Z] Validating nodejs source
-[debug] [2024-12-25T00:15:05.221Z] > [functions] package.json contents: {
-  "name": "functions",
-  "description": "Cloud Functions for Firebase",
-  "scripts": {
-    "serve": "firebase emulators:start --only functions",
-    "shell": "firebase functions:shell",
-    "start": "npm run shell",
-    "deploy": "firebase deploy --only functions",
-    "logs": "firebase functions:log"
-  },
-  "engines": {
-    "node": "20"
-  },
-  "main": "index.js",
-  "dependencies": {
-    "base-64": "^1.0.0",
-    "firebase-admin": "^12.6.0",
-    "firebase-functions": "^6.0.1"
-  },
-  "devDependencies": {
-    "firebase-functions-test": "^3.1.0"
-  },
-  "private": true
-}
-[debug] [2024-12-25T00:15:05.221Z] Building nodejs source
-[debug] [2024-12-25T00:15:05.221Z] Failed to find version of module node: reached end of search path /Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/node_modules
-[info] ✔  functions: Using node@20 from host. 
-[info] i  functions: Loaded environment variables from .env.local. 
-[debug] [2024-12-25T00:15:05.224Z] Could not find functions.yaml. Must use http discovery
-[debug] [2024-12-25T00:15:05.225Z] Found firebase-functions binary at '/Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/node_modules/.bin/firebase-functions'
-[info] Serving at port 8903
-
-[debug] [2024-12-25T00:15:05.584Z] Got response from /__/functions.yaml {"endpoints":{"manageActivePosts":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"manageActivePosts"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
-[debug] [2024-12-25T00:15:05.592Z] [functions] Loaded functions definitions from source: manageActivePosts.
-[debug] [2024-12-25T00:15:16.212Z] DEBUG: File /Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/index.js changed, reloading triggers
-[debug] [2024-12-25T00:15:17.216Z] Validating nodejs source
-[debug] [2024-12-25T00:15:18.048Z] > [functions] package.json contents: {
-  "name": "functions",
-  "description": "Cloud Functions for Firebase",
-  "scripts": {
-    "serve": "firebase emulators:start --only functions",
-    "shell": "firebase functions:shell",
-    "start": "npm run shell",
-    "deploy": "firebase deploy --only functions",
-    "logs": "firebase functions:log"
-  },
-  "engines": {
-    "node": "20"
-  },
-  "main": "index.js",
-  "dependencies": {
-    "base-64": "^1.0.0",
-    "firebase-admin": "^12.6.0",
-    "firebase-functions": "^6.0.1"
-  },
-  "devDependencies": {
-    "firebase-functions-test": "^3.1.0"
-  },
-  "private": true
-}
-[debug] [2024-12-25T00:15:18.048Z] Building nodejs source
-[debug] [2024-12-25T00:15:18.048Z] Failed to find version of module node: reached end of search path /Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/node_modules
-[info] ✔  functions: Using node@20 from host. 
-[info] i  functions: Loaded environment variables from .env.local. 
-[debug] [2024-12-25T00:15:18.049Z] Could not find functions.yaml. Must use http discovery
-[debug] [2024-12-25T00:15:18.050Z] Found firebase-functions binary at '/Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/node_modules/.bin/firebase-functions'
-[info] Serving at port 8006
-
-[debug] [2024-12-25T00:15:18.407Z] Got response from /__/functions.yaml {"endpoints":{"manageActivePosts":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"manageActivePosts"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
-[debug] [2024-12-25T00:15:18.414Z] [functions] Loaded functions definitions from source: manageActivePosts.
+[debug] [2024-12-25T03:26:30.363Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2024-12-25T03:26:30.367Z] <<< [apiv2][status] GET http://127.0.0.1:5001/bronco-matching-tool/us-central1/manageActivePosts/ 500
+[debug] [2024-12-25T03:26:30.367Z] <<< [apiv2][body] GET http://127.0.0.1:5001/bronco-matching-tool/us-central1/manageActivePosts/ {"code":"ECONNRESET"}
+[debug] [2024-12-25T03:26:30.372Z] DEBUG: [worker-us-central1-manageActivePosts-1cd24777-a126-4b83-9c45-8b326df2201e]: exited
+[debug] [2024-12-25T03:26:30.372Z] DEBUG: [worker-us-central1-manageActivePosts-1cd24777-a126-4b83-9c45-8b326df2201e]: FINISHED
