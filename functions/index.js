@@ -7,7 +7,9 @@
  * See a full list of supported triggers at https://firebase.google.com/docs/functions
  */
 
+const { onSchedule } = require("firebase-functions/v2/scheduler");
 const { onRequest } = require("firebase-functions/v2/https");
+
 const logger = require("firebase-functions/logger");
 const admin = require("firebase-admin");
 const base64 = require("base-64");
@@ -29,10 +31,12 @@ async function managePostReminders() {
     .where("active", "==", true)
     .get();
 
+  const sentEmails = new Set();
+
   async function updateItem(snapDoc, database) {
     const item = snapDoc.data();
 
-    // when outside Aug 1 and Nov 30; make all items inactive
+    // if outside Aug 1 and Nov 30; make item inactive
     if (isOutsideAug1ToNov30()) {
       const itemRef = db.collection(database).doc(item.id);
       const updatedItem = {
@@ -41,9 +45,10 @@ async function managePostReminders() {
       };
       await itemRef.update(updatedItem);
     } else {
-      // send email for all items older than 2 weeks
-      if (isMoreThanTwoWeeksAgo(item.time)) {
+      // Else: send email for item older than 2 weeks
+      if (isMoreThanTwoWeeksAgo(item.time) && !sentEmails.has(item.email)) {
         sendLinkToEmail(item.email);
+        sentEmails.add(item.email);
       }
     }
   }
@@ -57,13 +62,11 @@ async function managePostReminders() {
   });
 }
 
-exports.manageActivePosts = functions.pubsub
-  .schedule("0 0 */14 7-12 *") // Every 14 days from July to December
-  .timeZone("UTC")
-  .onRun(async (context) => {
-    logger.info("Running scheduled post manager...", { structuredData: true });
-    await managePostReminders();
-  });
+// Every 14 days from July to December
+exports.manageActivePosts = onSchedule("0 0 */14 7-12 *", async () => {
+  logger.info("Running scheduled post manager...", { structuredData: true });
+  await managePostReminders();
+});
 
 function isMoreThanTwoWeeksAgo(epochTime) {
   // Get the current time in milliseconds
