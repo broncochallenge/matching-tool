@@ -176,3 +176,38 @@
 [debug] [2024-12-25T03:26:30.367Z] <<< [apiv2][body] GET http://127.0.0.1:5001/bronco-matching-tool/us-central1/manageActivePosts/ {"code":"ECONNRESET"}
 [debug] [2024-12-25T03:26:30.372Z] DEBUG: [worker-us-central1-manageActivePosts-1cd24777-a126-4b83-9c45-8b326df2201e]: exited
 [debug] [2024-12-25T03:26:30.372Z] DEBUG: [worker-us-central1-manageActivePosts-1cd24777-a126-4b83-9c45-8b326df2201e]: FINISHED
+[debug] [2024-12-25T03:28:54.888Z] DEBUG: File /Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/index.js changed, reloading triggers
+[debug] [2024-12-25T03:28:55.904Z] Validating nodejs source
+[debug] [2024-12-25T03:28:56.776Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "20"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "base-64": "^1.0.0",
+    "firebase-admin": "^12.6.0",
+    "firebase-functions": "^6.0.1"
+  },
+  "devDependencies": {
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2024-12-25T03:28:56.776Z] Building nodejs source
+[debug] [2024-12-25T03:28:56.776Z] Failed to find version of module node: reached end of search path /Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/node_modules
+[info] ✔  functions: Using node@20 from host. 
+[debug] [2024-12-25T03:28:56.777Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-12-25T03:28:56.778Z] Found firebase-functions binary at '/Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/node_modules/.bin/firebase-functions'
+[info] Serving at port 8816
+
+[debug] [2024-12-25T03:28:57.201Z] Got response from /__/functions.yaml {"endpoints":{"manageActivePosts":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"manageActivePosts"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[debug] [2024-12-25T03:28:57.210Z] [functions] Loaded functions definitions from source: manageActivePosts.

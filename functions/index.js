@@ -79,7 +79,7 @@ function isMoreThanTwoWeeksAgo(epochTime) {
 
 async function sendLinkToEmail(email) {
   var encodedData = base64.encode(email);
-  let url = "https://broncochallenge.github.io/matching-tool/";
+  let url = "https://matching-tool-lime.vercel.app/";
   url += "delete-entries?data=" + encodedData;
   const text = `Have you found the team or team member you are looking for? If yes, use this link to remove your request post.
 
