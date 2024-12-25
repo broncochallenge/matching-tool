@@ -211,3 +211,308 @@
 
 [debug] [2024-12-25T03:28:57.201Z] Got response from /__/functions.yaml {"endpoints":{"manageActivePosts":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"manageActivePosts"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
 [debug] [2024-12-25T03:28:57.210Z] [functions] Loaded functions definitions from source: manageActivePosts.
+[debug] [2024-12-25T03:32:57.105Z] DEBUG: File /Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/index.js changed, reloading triggers
+[debug] [2024-12-25T03:32:58.117Z] Validating nodejs source
+[debug] [2024-12-25T03:32:59.363Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "20"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "base-64": "^1.0.0",
+    "firebase-admin": "^12.6.0",
+    "firebase-functions": "^6.0.1"
+  },
+  "devDependencies": {
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2024-12-25T03:32:59.363Z] Building nodejs source
+[debug] [2024-12-25T03:32:59.363Z] Failed to find version of module node: reached end of search path /Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/node_modules
+[info] ✔  functions: Using node@20 from host. 
+[debug] [2024-12-25T03:32:59.364Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-12-25T03:32:59.365Z] Found firebase-functions binary at '/Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/node_modules/.bin/firebase-functions'
+[info] Serving at port 8200
+
+[debug] [2024-12-25T03:32:59.740Z] Got response from /__/functions.yaml {"endpoints":{"manageActivePosts":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"manageActivePosts"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[debug] [2024-12-25T03:32:59.749Z] [functions] Loaded functions definitions from source: manageActivePosts.
+[debug] [2024-12-25T03:33:07.768Z] DEBUG: File /Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/index.js changed, reloading triggers
+[debug] [2024-12-25T03:33:08.771Z] Validating nodejs source
+[debug] [2024-12-25T03:33:09.313Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "20"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "base-64": "^1.0.0",
+    "firebase-admin": "^12.6.0",
+    "firebase-functions": "^6.0.1"
+  },
+  "devDependencies": {
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2024-12-25T03:33:09.313Z] Building nodejs source
+[debug] [2024-12-25T03:33:09.313Z] Failed to find version of module node: reached end of search path /Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/node_modules
+[info] ✔  functions: Using node@20 from host. 
+[debug] [2024-12-25T03:33:09.313Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-12-25T03:33:09.314Z] Found firebase-functions binary at '/Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/node_modules/.bin/firebase-functions'
+[info] Serving at port 8064
+
+[debug] [2024-12-25T03:33:09.646Z] Got response from /__/functions.yaml {"endpoints":{"manageActivePosts":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"manageActivePosts"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[debug] [2024-12-25T03:33:09.654Z] [functions] Loaded functions definitions from source: manageActivePosts.
+[debug] [2024-12-25T03:36:48.838Z] DEBUG: File /Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/index.js changed, reloading triggers
+[debug] [2024-12-25T03:36:49.851Z] Validating nodejs source
+[debug] [2024-12-25T03:36:51.234Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "20"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "base-64": "^1.0.0",
+    "firebase-admin": "^12.6.0",
+    "firebase-functions": "^6.0.1"
+  },
+  "devDependencies": {
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2024-12-25T03:36:51.234Z] Building nodejs source
+[debug] [2024-12-25T03:36:51.235Z] Failed to find version of module node: reached end of search path /Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/node_modules
+[info] ✔  functions: Using node@20 from host. 
+[debug] [2024-12-25T03:36:51.237Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-12-25T03:36:51.237Z] Found firebase-functions binary at '/Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/node_modules/.bin/firebase-functions'
+[info] Serving at port 8338
+
+[error] ReferenceError: functions is not defined
+    at Object.<anonymous> (/Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/index.js:66:29)
+    at Module._compile (node:internal/modules/cjs/loader:1358:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1416:10)
+    at Module.load (node:internal/modules/cjs/loader:1208:32)
+    at Module._load (node:internal/modules/cjs/loader:1024:12)
+    at Module.require (node:internal/modules/cjs/loader:1233:19)
+    at require (node:internal/modules/helpers:179:18)
+    at loadModule (/Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/node_modules/firebase-functions/lib/runtime/loader.js:40:16)
+    at loadStack (/Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/node_modules/firebase-functions/lib/runtime/loader.js:157:23)
+    at /Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/node_modules/firebase-functions/lib/bin/firebase-functions.js:56:56
+
+[debug] [2024-12-25T03:36:51.625Z] Got response code 400; body Failed to generate manifest from function source: ReferenceError: functions is not defined
+[error] ⬢  functions: Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error {"metadata":{"emulator":{"name":"functions"},"message":"Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error"}}
+[debug] [2024-12-25T03:36:53.988Z] DEBUG: File /Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/index.js changed, reloading triggers
+[debug] [2024-12-25T03:36:54.992Z] Validating nodejs source
+[debug] [2024-12-25T03:36:55.505Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "20"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "base-64": "^1.0.0",
+    "firebase-admin": "^12.6.0",
+    "firebase-functions": "^6.0.1"
+  },
+  "devDependencies": {
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2024-12-25T03:36:55.505Z] Building nodejs source
+[debug] [2024-12-25T03:36:55.505Z] Failed to find version of module node: reached end of search path /Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/node_modules
+[info] ✔  functions: Using node@20 from host. 
+[debug] [2024-12-25T03:36:55.507Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-12-25T03:36:55.507Z] Found firebase-functions binary at '/Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/node_modules/.bin/firebase-functions'
+[info] Serving at port 8072
+
+[error] ReferenceError: functions is not defined
+    at Object.<anonymous> (/Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/index.js:66:29)
+    at Module._compile (node:internal/modules/cjs/loader:1358:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1416:10)
+    at Module.load (node:internal/modules/cjs/loader:1208:32)
+    at Module._load (node:internal/modules/cjs/loader:1024:12)
+    at Module.require (node:internal/modules/cjs/loader:1233:19)
+    at require (node:internal/modules/helpers:179:18)
+    at loadModule (/Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/node_modules/firebase-functions/lib/runtime/loader.js:40:16)
+    at loadStack (/Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/node_modules/firebase-functions/lib/runtime/loader.js:157:23)
+    at /Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/node_modules/firebase-functions/lib/bin/firebase-functions.js:56:56
+
+[debug] [2024-12-25T03:36:55.706Z] Got response code 400; body Failed to generate manifest from function source: ReferenceError: functions is not defined
+[error] ⬢  functions: Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error {"metadata":{"emulator":{"name":"functions"},"message":"Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error"}}
+[debug] [2024-12-25T03:37:03.313Z] DEBUG: File /Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/index.js changed, reloading triggers
+[debug] [2024-12-25T03:37:04.316Z] Validating nodejs source
+[debug] [2024-12-25T03:37:04.910Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "20"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "base-64": "^1.0.0",
+    "firebase-admin": "^12.6.0",
+    "firebase-functions": "^6.0.1"
+  },
+  "devDependencies": {
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2024-12-25T03:37:04.910Z] Building nodejs source
+[debug] [2024-12-25T03:37:04.910Z] Failed to find version of module node: reached end of search path /Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/node_modules
+[info] ✔  functions: Using node@20 from host. 
+[debug] [2024-12-25T03:37:04.911Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-12-25T03:37:04.911Z] Found firebase-functions binary at '/Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/node_modules/.bin/firebase-functions'
+[info] Serving at port 8902
+
+[error] ReferenceError: functions is not defined
+    at Object.<anonymous> (/Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/index.js:65:29)
+    at Module._compile (node:internal/modules/cjs/loader:1358:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1416:10)
+    at Module.load (node:internal/modules/cjs/loader:1208:32)
+    at Module._load (node:internal/modules/cjs/loader:1024:12)
+    at Module.require (node:internal/modules/cjs/loader:1233:19)
+    at require (node:internal/modules/helpers:179:18)
+    at loadModule (/Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/node_modules/firebase-functions/lib/runtime/loader.js:40:16)
+    at loadStack (/Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/node_modules/firebase-functions/lib/runtime/loader.js:157:23)
+    at /Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/node_modules/firebase-functions/lib/bin/firebase-functions.js:56:56
+
+[debug] [2024-12-25T03:37:05.278Z] Got response code 400; body Failed to generate manifest from function source: ReferenceError: functions is not defined
+[error] ⬢  functions: Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error {"metadata":{"emulator":{"name":"functions"},"message":"Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error"}}
+[debug] [2024-12-25T03:37:14.966Z] DEBUG: File /Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/index.js changed, reloading triggers
+[debug] [2024-12-25T03:37:15.968Z] Validating nodejs source
+[debug] [2024-12-25T03:37:17.016Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "20"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "base-64": "^1.0.0",
+    "firebase-admin": "^12.6.0",
+    "firebase-functions": "^6.0.1"
+  },
+  "devDependencies": {
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2024-12-25T03:37:17.016Z] Building nodejs source
+[debug] [2024-12-25T03:37:17.017Z] Failed to find version of module node: reached end of search path /Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/node_modules
+[info] ✔  functions: Using node@20 from host. 
+[debug] [2024-12-25T03:37:17.017Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-12-25T03:37:17.018Z] Found firebase-functions binary at '/Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/node_modules/.bin/firebase-functions'
+[info] Serving at port 8472
+
+[error] ReferenceError: functions is not defined
+    at Object.<anonymous> (/Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/index.js:65:29)
+    at Module._compile (node:internal/modules/cjs/loader:1358:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1416:10)
+    at Module.load (node:internal/modules/cjs/loader:1208:32)
+    at Module._load (node:internal/modules/cjs/loader:1024:12)
+    at Module.require (node:internal/modules/cjs/loader:1233:19)
+    at require (node:internal/modules/helpers:179:18)
+    at loadModule (/Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/node_modules/firebase-functions/lib/runtime/loader.js:40:16)
+    at loadStack (/Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/node_modules/firebase-functions/lib/runtime/loader.js:157:23)
+    at /Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/node_modules/firebase-functions/lib/bin/firebase-functions.js:56:56
+
+[debug] [2024-12-25T03:37:17.373Z] Got response code 400; body Failed to generate manifest from function source: ReferenceError: functions is not defined
+[error] ⬢  functions: Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error {"metadata":{"emulator":{"name":"functions"},"message":"Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error"}}
+[debug] [2024-12-25T03:37:29.953Z] DEBUG: File /Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/index.js changed, reloading triggers
+[debug] [2024-12-25T03:37:30.957Z] Validating nodejs source
+[debug] [2024-12-25T03:37:31.542Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "20"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "base-64": "^1.0.0",
+    "firebase-admin": "^12.6.0",
+    "firebase-functions": "^6.0.1"
+  },
+  "devDependencies": {
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2024-12-25T03:37:31.542Z] Building nodejs source
+[debug] [2024-12-25T03:37:31.542Z] Failed to find version of module node: reached end of search path /Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/node_modules
+[info] ✔  functions: Using node@20 from host. 
+[debug] [2024-12-25T03:37:31.543Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-12-25T03:37:31.544Z] Found firebase-functions binary at '/Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/node_modules/.bin/firebase-functions'
+[info] Serving at port 8008
+
+[error] ReferenceError: functions is not defined
+    at Object.<anonymous> (/Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/index.js:60:29)
+    at Module._compile (node:internal/modules/cjs/loader:1358:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1416:10)
+    at Module.load (node:internal/modules/cjs/loader:1208:32)
+    at Module._load (node:internal/modules/cjs/loader:1024:12)
+    at Module.require (node:internal/modules/cjs/loader:1233:19)
+    at require (node:internal/modules/helpers:179:18)
+    at loadModule (/Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/node_modules/firebase-functions/lib/runtime/loader.js:40:16)
+    at loadStack (/Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/node_modules/firebase-functions/lib/runtime/loader.js:157:23)
+    at /Users/ayobamiu/Documents/Bronco Matching Tool /matching-tool/functions/node_modules/firebase-functions/lib/bin/firebase-functions.js:56:56
+
+[debug] [2024-12-25T03:37:31.881Z] Got response code 400; body Failed to generate manifest from function source: ReferenceError: functions is not defined
+[error] ⬢  functions: Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error {"metadata":{"emulator":{"name":"functions"},"message":"Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error"}}

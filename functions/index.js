@@ -57,10 +57,13 @@ async function managePostReminders() {
   });
 }
 
-exports.manageActivePosts = onRequest(async (request, response) => {
-  logger.info("Hello logs!", { structuredData: true });
-  await managePostReminders();
-});
+exports.manageActivePosts = functions.pubsub
+  .schedule("0 0 */14 7-12 *") // Every 14 days from July to December
+  .timeZone("UTC")
+  .onRun(async (context) => {
+    logger.info("Running scheduled post manager...", { structuredData: true });
+    await managePostReminders();
+  });
 
 function isMoreThanTwoWeeksAgo(epochTime) {
   // Get the current time in milliseconds
