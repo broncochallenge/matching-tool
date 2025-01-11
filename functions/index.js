@@ -87,7 +87,7 @@ async function sendLinkToEmail(email) {
   var encodedData = base64.encode(email);
   let url = "https://matching-tool-lime.vercel.app/";
   url += "delete-entries?data=" + encodedData;
-  const text = `Have you found the team or team member you are looking for? If yes, use this link to remove your request post.
+  const text = `Have you found the team or team member you are looking for? If yes, use this link to delete your request post.
 
   Link: ${url}
 
@@ -106,7 +106,7 @@ async function sendLinkToEmail(email) {
       <body>
         <div style="font-family: Arial, sans-serif; color: #333;">
           <h2 style="color: #2E86C1;">Bronco Challenge</h2>
-          <p>Have you found the team or team member you are looking for? If yes, use this link to remove your request post.</p>
+          <p>Have you found the team or team member you are looking for? If yes, use this link to delete your request post.</p>
           <h3 style="color: #2E86C1;">Link: <span style="color: #E74C3C;">${url}</span></h3>
           <br>
           <p>All request posts will be removed automatically after November 30.</p>
